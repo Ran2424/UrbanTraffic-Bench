@@ -4,10 +4,14 @@
 
 TrafficSQL-Bench 基于公开 Text-to-SQL 数据集中的交通相关数据库和问题整理而成，主要包括：
 
-- Spider traffic subset
-- BIRD train traffic subset
+- [Spider](https://github.com/taoyds/spider) traffic subset
+- [BIRD](https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/bird) train traffic subset
 
 本数据集将这些交通相关样本整理为统一的数据库 ID、场景标签、schema 文件、task 文件和数据库知识说明。使用、发布或引用本数据集时，请同时遵守原始数据集的许可证和引用要求。
+
+## 致谢
+
+感谢 [taoyds/spider](https://github.com/taoyds/spider) 和 [AlibabaResearch/DAMO-ConvAI BIRD](https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/bird) 项目提供高质量的公开 Text-to-SQL 数据资源。TrafficSQL-Bench 的交通领域任务整理工作建立在这些公开数据资源之上。
 
 ## 数据集内容
 
