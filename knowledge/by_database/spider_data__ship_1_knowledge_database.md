@@ -109,12 +109,12 @@ Use the database JSON record for the full schema.
 
 - `captain.Ship_ID` 连接 `Ship.Ship_ID` 后才能按船舶类型、旗国或建造年份筛选船长。
 - `Ship.Class` 和 `captain.Class` 含义不同，前者偏船级/船舶分类，后者偏船长关联的舰船等级描述。
-- 问 youngest/oldest captain 时，`captain.age` 是文本数字，使用 `CAST(age AS INTEGER)` 更稳。
-- 若题目问“由最年轻/最年长船长指挥的船”，注意是否需要保留并列最小/最大年龄：题目若未指定只取一条，可用子查询 `WHERE CAST(age AS INTEGER) = (SELECT MIN(...))`。
+- youngest/oldest captain 等年龄极值语义中，`captain.age` 是文本数字，使用 `CAST(age AS INTEGER)` 更稳。
+- 通过最年轻/最年长船长关联船舶时，若没有明确只返回一条记录，应保留并列最小/最大年龄，可用子查询按 `CAST(age AS INTEGER)` 过滤极值。
 
 ## 8. 使用提示
 
 - 自然语言问题中的实体名称、指标名称和时间条件，建议优先映射到上方字段说明中含义明确的字段。
 - 如果字段没有显式外键，但字段名包含 `_id`、`code`、`name` 等，应结合样例数据判断是否可作为连接键。
 - 涉及日期、时间、单位换算、百分比、最高/最低、平均值等问题时，应额外核对字段单位和聚合粒度。
-- 本文档提供数据库级知识；具体题目的隐含口径仍需结合 `task_knowledge/`、`task_fix/` 和正式评测记录判断。
+- 本文档提供数据库级知识；具体问题的隐含口径仍需结合题面措辞、字段样例和查询粒度判断。

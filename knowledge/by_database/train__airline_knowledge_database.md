@@ -148,24 +148,24 @@
 
 - 表名 `Air Carriers` 含空格，SQL 中必须使用双引号、反引号或方括号引用。
 - `Air Carriers.Description` 的值通常是 `航空公司官方名称: 承运人代码`，如 `American Airlines Inc.: AA`、`Endeavor Air Inc.: 9E`、`Delta Air Lines Inc.: DL`。按承运人名称筛选时，不要写成 `Description = 'American Airlines Inc.'` 这类缺少后缀的精确匹配；优先使用库中完整值，或使用 `Description LIKE 'American Airlines Inc.:%'` / `LIKE '%Republic Airline%'` 这类能覆盖后缀的匹配。
-- `Airlines` 是航班事实表。若题目可以直接映射到 `ORIGIN`、`DEST`、`OP_CARRIER_AIRLINE_ID`、`OP_CARRIER_FL_NUM`、`TAIL_NUM` 等字段，优先直接查询 `Airlines`；不要为了语义解释而强制连接代码表。
-- `ORIGIN` 和 `DEST` 是机场代码。题目问 origin、destination、origin city、destination city 时，默认返回对应代码字段；题目问 origin airport、destination airport、airport name、airport description 或需要按机场全名筛选时，才连接 `Airports` 并返回/匹配 `Airports.Description`。
-- 地名不要自动扩展为州内所有机场。`New York`、`Oklahoma`、`Dallas`、`Santa Ana`、`Allentown` 等在本库问题中经常对应具体机场代码或题面给定机场；除非题目明确说 state、all airports in、airports in the state of，否则不要使用 `Airports.Description LIKE '%, 州缩写:%'`。
-- 自然语言地名常指代具体机场代码，而不是全州或同名城市所有机场。常见映射包括：`New York`/`John F. Kennedy International` -> `JFK`，`Allentown, Pennsylvania` -> `ABE`，`Albany` -> `ABY`，`Oklahoma` -> `OKC`，`Phoenix` -> `PHX`。若题目给出的是这类简短地点名，优先映射到对应 `ORIGIN`/`DEST` 代码。
+- `Airlines` 是航班事实表。能直接映射到 `ORIGIN`、`DEST`、`OP_CARRIER_AIRLINE_ID`、`OP_CARRIER_FL_NUM`、`TAIL_NUM` 等事实表字段的查询，优先直接查询 `Airlines`；不要为了语义解释而强制连接代码表。
+- `ORIGIN` 和 `DEST` 是机场代码。origin、destination、origin city、destination city 等字段级表达默认返回对应代码字段；origin airport、destination airport、airport name、airport description 或机场全名筛选才连接 `Airports` 并返回/匹配 `Airports.Description`。
+- 地名不要自动扩展为州内所有机场。只有 state、all airports in、airports in the state of 等明确州域语义，才使用 `Airports.Description LIKE '%, 州缩写:%'` 这类州级匹配。
+- 自然语言地名常指代具体机场代码，而不是全州或同名城市所有机场。常见别名映射包括：`New York`/`John F. Kennedy International` -> `JFK`，`Allentown, Pennsylvania` -> `ABE`，`Albany` -> `ABY`，`Oklahoma` -> `OKC`，`Phoenix` -> `PHX`。简短地点名优先映射到对应 `ORIGIN`/`DEST` 代码。
 - `Airports.Description` 的格式通常是 `城市, 州缩写: 机场名`，机场名不一定包含单词 `Airport`。按机场名称匹配时优先使用题目核心名称或数据库精确描述，不要自行补 `Airport` 后缀。
 - 机场描述要按库中原文精确匹配或用不含后缀的核心片段。常见精确值包括：`New York, NY: John F. Kennedy International`、`Los Angeles, CA: Los Angeles International`、`San Diego, CA: San Diego International`、`Lake Charles, LA: Lake Charles Regional`、`Charlotte, NC: Charlotte Douglas International`、`Austin, TX: Austin - Bergstrom International`、`Fort Lauderdale, FL: Fort Lauderdale-Hollywood International`。
-- 延误字段分为可为负的原始延误和非负的 `_NEW` 延误。题目问 delayed、late、on time、arrived earlier、average delay 时，优先使用原始字段 `DEP_DELAY` 或 `ARR_DELAY`，不要默认使用 `_NEW` 字段。
-- departure delay 只使用 `DEP_DELAY`，arrival delay 只使用 `ARR_DELAY`。不要把 delayed 自动写成 `DEP_DELAY > 0 OR ARR_DELAY > 0`；题面明确 departure/arrival 时只看对应字段。
-- departed on time / arrived on time 在本库中通常表示“不晚于计划”，即出发按 `DEP_DELAY <= 0`、到达按 `ARR_DELAY <= 0`；departed early/arrived earlier 使用 `< 0`；departure/arrival delayed 使用 `> 0`。只有题目明确问 exactly on schedule、delay equals zero 或 zero minutes late 时才使用 `= 0`。
-- 不要默认添加 `CANCELLED = 0`、`TAIL_NUM IS NOT NULL`、`ACTUAL_ELAPSED_TIME IS NOT NULL`。只有题目明确要求未取消、实际完成、有效实际耗时或需要排除空值计算时才添加。
+- 延误字段分为可为负的原始延误和非负的 `_NEW` 延误。delayed、late、on time、arrived earlier、average delay 等语义优先使用原始字段 `DEP_DELAY` 或 `ARR_DELAY`，不要默认使用 `_NEW` 字段。
+- departure delay 只使用 `DEP_DELAY`，arrival delay 只使用 `ARR_DELAY`。不要把 delayed 自动写成 `DEP_DELAY > 0 OR ARR_DELAY > 0`；明确 departure/arrival 时只看对应字段。
+- departed on time / arrived on time 在本库中通常表示“不晚于计划”，即出发按 `DEP_DELAY <= 0`、到达按 `ARR_DELAY <= 0`；departed early/arrived earlier 使用 `< 0`；departure/arrival delayed 使用 `> 0`。exactly on schedule、delay equals zero 或 zero minutes late 才使用 `= 0`。
+- 不要默认添加 `CANCELLED = 0`、`TAIL_NUM IS NOT NULL`、`ACTUAL_ELAPSED_TIME IS NOT NULL`。只有明确要求未取消、实际完成、有效实际耗时或需要排除空值计算时才添加。
 - `CANCELLED = 1` 的航班可能没有实际起降时间或实际耗时；只有计算 actual elapsed time 等实际完成指标时，才考虑排除取消航班或空值。
 - 日期字段 `Airlines.FL_DATE` 是文本，样例格式为 `2018/8/1`、`2018/8/31`。按月份筛选优先使用 `LIKE '2018/8%'`，不要写成只能匹配两层斜杠的 `LIKE '2018/8/%'`，也不要改成不存在的补零格式。
-- 题目出现 “flights to/from X”“flights of carrier X”“flights on date X” 时，这些条件通常既限制外层候选航班，也限制相关聚合、平均值或百分比的统计范围；不要只把条件放在子查询里。
-- 如果题目同时要求总体聚合和某个最高/最低实体（如“总延误小时数，并指出延误最高的飞机号”），通常需要一个总体聚合和一个按实体分组排序的子查询/CTE，再合并输出；不要只返回最高实体自己的聚合值。
-- 百分比和平均值不要主动 `ROUND`，除非题目明确要求四舍五入或指定小数位。
-- 问 air carrier description、airport code、tail number 等列表时，根据题面判断是否需要唯一集合；如果问描述/代码集合，通常使用 `GROUP BY` 或 `DISTINCT` 去重，避免重复行导致大结果截断。
-- 输出列严格匹配题面要求，不额外返回中间指标、解释性指标或排序辅助列。
-- 问“number of airplanes”通常对应不同飞机尾号，使用 `COUNT(DISTINCT TAIL_NUM)`。
+- flights to/from X、flights of carrier X、flights on date X 等限定条件通常既限制外层候选航班，也限制相关聚合、平均值或百分比的统计范围；不要只把条件放在子查询里。
+- 同时要求总体聚合和某个最高/最低实体时，通常需要一个总体聚合和一个按实体分组排序的子查询/CTE，再合并输出；不要只返回最高实体自己的聚合值。
+- 百分比和平均值不要主动 `ROUND`，除非明确要求四舍五入或指定小数位。
+- air carrier description、airport code、tail number 等列表需判断是否为唯一集合；描述/代码集合通常使用 `GROUP BY` 或 `DISTINCT` 去重，避免重复行导致大结果截断。
+- 输出列严格匹配自然语言要求，不额外返回中间指标、解释性指标或排序辅助列。
+- number of airplanes 通常对应不同飞机尾号，使用 `COUNT(DISTINCT TAIL_NUM)`。
 
 ## 8. 使用提示
 

@@ -136,7 +136,7 @@ Use the database JSON record for the full schema.
 ## 7. SQL 生成注意事项
 
 - `pilot_record` 是飞行员与航空器的事实表，统计飞行员或航空器时注意同一实体可能出现多条日期记录。
-- 问 “positions and teams of pilots” 只返回 `Position, Team` 两列；不要额外返回 `Pilot_name`，除非题目明确要求姓名。
+- 输出飞行员属性时只返回自然语言问题明确要求的列；`Pilot_name`、日期、编号等字段不要作为解释性辅助列额外投影。
 - `Rank`、`Position`、`Team` 字段来自人员资料，含义偏人物属性，不是飞行记录结果；highest rank 指最小 `Rank`。
 - 日期/时间多为文本字段：`pilot_record.Date`；做范围筛选或排序前需确认格式。
 
@@ -145,4 +145,4 @@ Use the database JSON record for the full schema.
 - 自然语言问题中的实体名称、指标名称和时间条件，建议优先映射到上方字段说明中含义明确的字段。
 - 如果字段没有显式外键，但字段名包含 `_id`、`code`、`name` 等，应结合样例数据判断是否可作为连接键。
 - 涉及日期、时间、单位换算、百分比、最高/最低、平均值等问题时，应额外核对字段单位和聚合粒度。
-- 本文档提供数据库级知识；具体题目的隐含口径仍需结合 `task_knowledge/`、`task_fix/` 和正式评测记录判断。
+- 本文档提供数据库级知识；具体问题的隐含口径仍需结合题面措辞、字段样例和查询粒度判断。

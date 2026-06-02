@@ -280,21 +280,21 @@
 
 - `orderdetails` 是订单明细，一笔订单可有多行产品；计算订单总额需 `quantityOrdered * priceEach` 后按订单汇总。
 - `payments` 是付款记录，不等同于订单金额；客户销售额和客户付款额是不同口径。
-- 问 annual payments 的 average/highest/lowest 时，先按年份汇总 `SUM(payments.amount)`，再对年度总额整体求 `AVG/MAX/MIN`；外层不要再按年份 `GROUP BY`，结果应是一行。
-- `products.MSRP - products.buyPrice` 表示单件 expected profit。题目只问 expected profits greater than X 时按单件差值判断并计订单明细行/产品码，不要默认乘 `quantityOrdered` 或统计订单数。只有明确问订单总利润/总销售利润时才乘 `orderdetails.quantityOrdered`。
+- annual payments 的 average/highest/lowest 口径应先按年份汇总 `SUM(payments.amount)`，再对年度总额整体求 `AVG/MAX/MIN`；外层不要再按年份 `GROUP BY`，结果应是一行。
+- `products.MSRP - products.buyPrice` 表示单件 expected profit。expected profits threshold 语义按单件差值判断并计订单明细行或产品码，不要默认乘 `quantityOrdered` 或统计订单数。订单总利润或总销售利润语义才乘 `orderdetails.quantityOrdered`。
 - actual profit 使用成交价：单行利润为 `orderdetails.priceEach - products.buyPrice`，订单/总实际利润为 `(priceEach - buyPrice) * quantityOrdered` 后求和。不要用 `MSRP - buyPrice` 计算 actual profit。
 - 折扣 discount 是折扣率：`(products.MSRP - orderdetails.priceEach) / products.MSRP`，不是单纯折扣金额 `MSRP - priceEach`。
 - “total price for each product in terms of the largest quantity that was ordered” 使用最大订购数量那一行的 `quantityOrdered * priceEach`，不是 `expected_profit * max_quantity`。
-- “highest amount of order” 在 Boston sales rep 题中指订单明细行金额 `quantityOrdered * priceEach` 最大的产品行，不是先汇总整张订单再取其中产品。`COUNT(*)`。
-- 题目中的 employee Code/Code of employee 指 `employees.employeeNumber`，不是 `employees.officeCode`。
+- 订单金额口径需先判断粒度：订单明细行金额为 `quantityOrdered * priceEach`；若要求整笔订单总额，应先按 `orderNumber` 汇总后再排序或筛选。
+- employee Code/Code of employee 指 `employees.employeeNumber`，不是 `employees.officeCode`。
 - 订单状态需按库中枚举精确匹配：正在处理/processing 对应 `orders.status = 'In Process'`，不要写 `Processing`；取消为 `Cancelled`，有争议为 `Disputed`。
 - `productLine` 通常区分大小写，常见值包括 `Motorcycles`、`Classic Cars`、`Vintage Cars`。
 - 产品名中的年份是产品名称的一部分。例如 `2001 Ferrari Enzo` 应匹配 `products.productName = '2001 Ferrari Enzo'`。
 - Sales Rep 要精确匹配 `employees.jobTitle = 'Sales Rep'`，不要用 `LIKE '%Sales%'` 或 `LIKE 'Sales Rep%'` 扩到 Sales Manager 等职位。
-- 题目问 full name 时通常拼接 `firstName || ' ' || lastName`；问 contact full name 可用 `TRIM(contactFirstName || ' ' || contactLastName)`，因为部分联系人名字含尾随空格。
-- 题目问 sales representative 的 superior/leader/reports to 时，要从销售代表 `employees.reportsTo` 自连接到上级员工；若问 superior 的 email，应返回上级员工邮箱，不是销售代表本人邮箱。
+- full name 语义通常拼接 `firstName || ' ' || lastName`；contact full name 可用 `TRIM(contactFirstName || ' ' || contactLastName)`，因为部分联系人名字含尾随空格。
+- sales representative 的 superior/leader/reports to 语义需要从销售代表 `employees.reportsTo` 自连接到上级员工；superior email 应返回上级员工邮箱，不是销售代表本人邮箱。
 - UK/French/American customers 指 `customers.country`，不要误用办公室国家；employees/offices in USA/Japan/Boston/NYC 才使用 `offices.country/city`。
-- 百分比题除非题目要求四舍五入，不要主动 `ROUND`；
+- 百分比计算除非明确要求四舍五入，不要主动 `ROUND`。
 - 部分外键在 metadata 中显示 `None`，但业务上 `orderdetails.orderNumber` 对应 `orders.orderNumber`，`orderdetails.productCode` 对应 `products.productCode`。
 - `employees.reportsTo` 是自关联上级员工编号。
 - 日期/时间多为文本字段：`orders.orderDate`、`orders.requiredDate`、`orders.shippedDate`、`payments.paymentDate`；做范围筛选或排序前需确认格式。
@@ -304,4 +304,4 @@
 - 自然语言问题中的实体名称、指标名称和时间条件，建议优先映射到上方字段说明中含义明确的字段。
 - 如果字段没有显式外键，但字段名包含 `_id`、`code`、`name` 等，应结合样例数据判断是否可作为连接键。
 - 涉及日期、时间、单位换算、百分比、最高/最低、平均值等问题时，应额外核对字段单位和聚合粒度。
-- 本文档提供数据库级知识；具体题目的隐含口径仍需结合 `task_knowledge/`、`task_fix/` 和正式评测记录判断。
+- 本文档提供数据库级知识；具体问题的隐含口径仍需结合题面措辞、字段样例和查询粒度判断。

@@ -161,9 +161,9 @@ Use the database JSON record for the full schema.
 
 - `Renting_history` 是租赁事实表，客户、折扣、车辆都需要通过编号连接。
 - `Discount.membership_credit` 表示折扣门槛积分，`Customers.membership_credit` 表示客户已有积分，二者含义不同。
-- 查询每个车辆、客户或折扣的租赁统计时，先确定是否要保留没有租赁记录的实体：题目说 each/every/all vehicle/customer/discount 时，通常从实体表出发 `LEFT JOIN Renting_history`。
+- 查询每个车辆、客户或折扣的租赁统计时，先确定是否要保留没有租赁记录的实体：each/every/all vehicle/customer/discount 等全量实体语义通常从实体表出发 `LEFT JOIN Renting_history`。
 - `LEFT JOIN` 后做 `SUM(total_hours)`、`COUNT` 等聚合时要处理空值。未发生租赁的车辆总小时数应返回 0，可用 `COALESCE(SUM(Renting_history.total_hours), 0)`；不要让总和结果为 `NULL`。
-- 问 “most rental history records / most records / most times rented” 时，按 `Renting_history` 事实记录条数 `COUNT(*)` 排序，不要按 `SUM(total_hours)` 或折扣额度、积分门槛排序。
+- most rental history records / most records / most times rented 等频次语义按 `Renting_history` 事实记录条数 `COUNT(*)` 排序，不要按 `SUM(total_hours)` 或折扣额度、积分门槛排序。
 - 统计某个维度对应的租赁记录数时，以 `Renting_history` 为事实表，按事实表外键或对应维表主键分组后再取维表名称；不要加入不必要的额外分组列或二级排序，以免并列时改变返回口径。
 - 若多个实体的 `COUNT(*)` 并列且题目未指定并列规则，保持简单的 `GROUP BY 目标ID ORDER BY COUNT(*) DESC LIMIT 1`；不要额外按名称、ID、折扣比例等字段排序。
 - 车辆燃油经济性和成本指标单位不同，比较前需确认题目要求的是评分、美元成本还是年成本。

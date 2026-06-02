@@ -133,15 +133,14 @@ Use the database JSON record for the full schema.
 - `flights.Airline` 存航空公司编号，应连接 `airlines.uid` 后取航空公司名称。
 - `airports` 可能同一城市有多个机场，不要把城市名当作机场唯一键。
 - 本库存在严重的 Spider 原始数据空格问题：`airports.City`、`airports.AirportName`、`airports.Country` 全部带尾随空格，`flights.SourceAirport`、`flights.DestAirport` 全部带前导空格。
-- 重要评测口径：尽管真实数据有空格，正式 Gold SQL 大多数仍按原字段直接比较或直接连接，不做 `TRIM()`。因此生成 SQL 时不要为了“修正数据”主动给 `City`、`AirportName`、`Country`、`SourceAirport`、`DestAirport` 加 `TRIM()`，也不要把题目中的 `Aberdeen` 改写成 `'Aberdeen '`。
-- 机场代码条件题如 “depart from APG”、“destination ATO”、“United Airlines flights to ASY” 通常直接写 `SourceAirport = 'APG'` 或 `DestAirport = 'ASY'`，不要写 `TRIM(SourceAirport) = 'APG'`。直接比较可能返回 0，这是 Gold 口径。
-- 城市到航班的连接题如 “flights departing from Aberdeen city” 通常直接写 `flights.SourceAirport = airports.AirportCode` 或 `flights.DestAirport = airports.AirportCode`，不要使用 `TRIM(flights.SourceAirport)` 连接。直接连接可能因空格返回 0，这是 Gold 口径。
-- 例外：只有题目明确问“airport code with the most/fewest flights”这类统计所有起降端点的机场代码时，正式修复版 Gold 会使用 `TRIM(SourceAirport)` 和 `TRIM(DestAirport)` 归一化端点后统计。
-- 题目问“depart from/leave from”对应 `SourceAirport`；问“arrive at/into/destination”对应 `DestAirport`。
+- 尽管真实数据有前后空格，默认按数据库原字段直接比较或连接；不要为了“修正数据”主动给 `City`、`AirportName`、`Country`、`SourceAirport`、`DestAirport` 加 `TRIM()`，也不要自行给字符串常量补空格。
+- 机场代码筛选默认直接比较 `SourceAirport` 或 `DestAirport`；只有明确要求归一化机场代码、合并起降端点或统计所有端点代码时，才考虑使用 `TRIM(SourceAirport)` 和 `TRIM(DestAirport)`。
+- 城市与航班关联默认使用 `flights.SourceAirport = airports.AirportCode` 或 `flights.DestAirport = airports.AirportCode`；不要无条件在连接键上套 `TRIM()`。
+- 出发地、离港地对应 `SourceAirport`；到达地、目的地对应 `DestAirport`。
 
 ## 8. 使用提示
 
 - 自然语言问题中的实体名称、指标名称和时间条件，建议优先映射到上方字段说明中含义明确的字段。
 - 如果字段没有显式外键，但字段名包含 `_id`、`code`、`name` 等，应结合样例数据判断是否可作为连接键。
 - 涉及日期、时间、单位换算、百分比、最高/最低、平均值等问题时，应额外核对字段单位和聚合粒度。
-- 本文档提供数据库级知识；具体题目的隐含口径仍需结合 `task_knowledge/`、`task_fix/` 和正式评测记录判断。
+- 本文档提供数据库级知识；具体问题的隐含口径仍需结合题面措辞、字段样例和查询粒度判断。

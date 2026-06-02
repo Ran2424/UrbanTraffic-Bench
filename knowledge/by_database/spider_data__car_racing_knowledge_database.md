@@ -97,7 +97,7 @@ Use the database JSON record for the full schema.
 | Age | INT | number |  |  | 年龄。 样例值：23、21、19。 |
 | Car_# | REAL | number |  |  | 赛车车号。 样例值：9.0、17.0、20.0。 |
 | Make | TEXT | text |  |  | 赛车手驾驶车辆品牌。 样例值：Dodge、Ford、Chevrolet。 |
-| Points | TEXT | text |  |  | 比赛积分，字段类型为 TEXT；formal Gold 在 max/min/order/sum/avg/比较题中直接使用 `Points`，不主动转换类型。 样例值：185、175、165。 |
+| Points | TEXT | text |  |  | 比赛积分，字段类型为 TEXT；按原字段排序、聚合或比较时会遵循 SQLite 的文本口径，只有明确需要数值口径时再转换类型。 样例值：185、175、165。 |
 | Laps | REAL | number |  |  | 完成圈数。 样例值：334.0。 |
 | Winnings | TEXT | text |  |  | 奖金金额。 样例值：$530,164、$362,491、$286,386。 |
 
@@ -162,10 +162,10 @@ Use the database JSON record for the full schema.
 - `driver.Country` 存国家编号，筛选国家名称时需连接 `country.Country_Id`。
 - `team_driver` 是车队与车手关系表，连接后可能一队多车手或一车手多队，聚合时注意去重。
 - `Car_#` 字段名含 `#`，SQL 中建议用双引号引用。
-- `driver.Points` 在表中是 TEXT；本库 formal Gold 对 points 的 max/min、排序、sum/avg 和 `> 150`、`< 150` 比较都直接使用 `Points`。不要主动写 `CAST(Points AS INTEGER/REAL)`，否则 max/min 或排序可能与 Gold 不一致。
-- 问最大/最小 points 用 `SELECT max(Points), min(Points) FROM driver`；问按 points 降序列出 driver 用 `SELECT Driver FROM driver ORDER BY Points DESC`，不要额外返回 `Points` 列。
-- `country.Official_native_language` 需要按题目值精确匹配；问 `"English"` 时使用 `= 'English'`，不要用 `LIKE '%English%'`，否则会错误纳入 `British English` 和 `English Manx`。
-- 题目只问 manager and sponsor 时只返回 `Manager, Sponsor`；题目只问 driver names 时只返回 `Driver`。排序字段如 `Car_Owner`、`Points` 只用于 `ORDER BY`，不要额外投影，除非题目明确要求显示该字段。
+- `driver.Points` 在表中是 TEXT；默认按原字段进行 max/min、排序、sum/avg 和比较，不主动写 `CAST(Points AS INTEGER/REAL)`，除非自然语言问题明确要求数值化处理。
+- points 极值或排序查询应只投影问题要求的实体或指标；`Points` 可作为排序字段，但不要作为解释性辅助列额外返回。
+- `country.Official_native_language` 需要按完整取值精确匹配；使用模糊匹配会把 `British English`、`English Manx` 等不同语言标签混入。
+- 输出列应严格匹配自然语言问题要求；`Car_Owner`、`Points` 等排序或过滤字段不要额外投影，除非问题明确要求显示。
 - 以下表名或字段名含空格、特殊字符或关键字，SQL 中建议加双引号：`driver.Car_#`。
 
 ## 8. 使用提示
@@ -173,4 +173,4 @@ Use the database JSON record for the full schema.
 - 自然语言问题中的实体名称、指标名称和时间条件，建议优先映射到上方字段说明中含义明确的字段。
 - 如果字段没有显式外键，但字段名包含 `_id`、`code`、`name` 等，应结合样例数据判断是否可作为连接键。
 - 涉及日期、时间、单位换算、百分比、最高/最低、平均值等问题时，应额外核对字段单位和聚合粒度。
-- 本文档提供数据库级知识；具体题目的隐含口径仍需结合 `task_knowledge/`、`task_fix/` 和正式评测记录判断。
+- 本文档提供数据库级知识；具体问题的隐含口径仍需结合题面措辞、字段样例和查询粒度判断。

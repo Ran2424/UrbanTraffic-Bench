@@ -161,7 +161,7 @@ Use the database JSON record for the full schema.
 - `train.From` 字段名是 SQL 关键字，建议写成 `"From"`。
 - `railway.Built` 可能包含年份加说明文本，不能直接全部当作整数年份。
 - `railway_manage` 是铁路与管理者关系表，按管理者统计铁路数量时注意去重。
-- 问 manager oldest/youngest 时按 `manager.Age` 排序；`Working_year_starts` 表示开始工作年份，不表示年龄。
+- 管理者年龄极值应使用 `manager.Age` 排序或比较；`Working_year_starts` 表示开始工作年份，不表示年龄。
 - 以下表名或字段名含空格、特殊字符或关键字，SQL 中建议加双引号：`train.From`。
 - 日期/时间多为文本字段：`train.Arrival`；做范围筛选或排序前需确认格式。
 
@@ -170,4 +170,4 @@ Use the database JSON record for the full schema.
 - 自然语言问题中的实体名称、指标名称和时间条件，建议优先映射到上方字段说明中含义明确的字段。
 - 如果字段没有显式外键，但字段名包含 `_id`、`code`、`name` 等，应结合样例数据判断是否可作为连接键。
 - 涉及日期、时间、单位换算、百分比、最高/最低、平均值等问题时，应额外核对字段单位和聚合粒度。
-- 本文档提供数据库级知识；具体题目的隐含口径仍需结合 `task_knowledge/`、`task_fix/` 和正式评测记录判断。
+- 本文档提供数据库级知识；具体问题的隐含口径仍需结合题面措辞、字段样例和查询粒度判断。

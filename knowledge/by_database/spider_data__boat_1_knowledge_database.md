@@ -123,13 +123,13 @@ Use the database JSON record for the full schema.
 
 - `Reserves` 是多对多预约表，统计船只或水手时要注意一条预约会同时连接一个水手和一条船。
 - `day` 只有月/日格式，没有年份；涉及跨年排序或完整日期时不能假设年份。
-- 问 “sailors who reserved red and blue boats” 表示同一水手同时预约过红色和蓝色船，应使用 `INTERSECT` 或 `GROUP BY sid HAVING` 同时满足两种颜色，不是 `color IN ('red','blue')` 的并集。
-- 问 “number of reservations for each boat” 时应从 `Boats` 出发 `LEFT JOIN Reserves`，这样没有预约的船也保留为 0；不要只从 `Reserves` 分组。
-- Spider 原始题中 “older than any sailor(s)” 常按 “比至少一个水手年长” 处理，即 `age > (SELECT MIN(age) FROM Sailors)`；“older than all sailors” 才对应 `age > MAX(age)`。
+- 当同一水手需要同时满足多个船只属性条件时，应使用 `INTERSECT` 或按 `sid` 分组后在 `HAVING` 中检查多个条件；不要把多个属性值简单写成 `IN (...)` 的并集。
+- 统计每条船的预约次数且需要保留没有预约记录的船时，应从 `Boats` 出发 `LEFT JOIN Reserves`，让未预约船只计为 0；只从 `Reserves` 分组会丢失 0 次记录。
+- 年龄比较中的 any/all 语义需区分：`any` 通常表示至少满足一个比较对象，可对应 `age > (SELECT MIN(age) FROM Sailors)`；`all` 才对应与最大年龄比较。
 
 ## 8. 使用提示
 
 - 自然语言问题中的实体名称、指标名称和时间条件，建议优先映射到上方字段说明中含义明确的字段。
 - 如果字段没有显式外键，但字段名包含 `_id`、`code`、`name` 等，应结合样例数据判断是否可作为连接键。
 - 涉及日期、时间、单位换算、百分比、最高/最低、平均值等问题时，应额外核对字段单位和聚合粒度。
-- 本文档提供数据库级知识；具体题目的隐含口径仍需结合 `task_knowledge/`、`task_fix/` 和正式评测记录判断。
+- 本文档提供数据库级知识；具体问题的隐含口径仍需结合题面措辞、字段样例和查询粒度判断。

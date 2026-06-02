@@ -147,7 +147,7 @@
 | --- | --- | --- | --- | --- | --- |
 | ship_id | INTEGER | integer | PK |  | 货运记录唯一编号。 别名：ship id。 样例值：1000、1001、1002。 |
 | cust_id | INTEGER | integer | FK | customer.cust_id | 外键，指向 `customer.cust_id`，表示本记录关联的客户。 |
-| weight | REAL | real |  |  | 单票货运记录的货物重量；只有题目出现 total/sum/按实体累计等语义时才汇总。 样例值：3528.0、11394.0、8712.0。 |
+| weight | REAL | real |  |  | 单票货运记录的货物重量；只有 total/sum/按实体累计等语义时才汇总。 样例值：3528.0、11394.0、8712.0。 |
 | truck_id | INTEGER | integer | FK | truck.truck_id | 外键，指向 `truck.truck_id`，表示本记录关联的卡车。 |
 | driver_id | INTEGER | integer | FK | driver.driver_id | 外键，指向 `driver.driver_id`，表示本记录关联的货运司机。 |
 | city_id | INTEGER | integer | FK | city.city_id | 外键，指向 `city.city_id`，表示本记录关联的城市。 |
@@ -172,7 +172,7 @@
 | 字段 | 类型 | 逻辑类型 | 约束 | 关联 | 含义 |
 | --- | --- | --- | --- | --- | --- |
 | truck_id | INTEGER | integer | PK |  | 卡车编号，关联 truck.truck_id。 别名：truck id。 样例值：1、2、3。 |
-| make | TEXT | text |  |  | 卡车品牌或制造商。总部映射：`Peterbilt` -> `Texas (TX)`，`Mack` -> `North Carolina (NC)`，`Kenworth` -> `Washington (WA)`；题目问 truck headquarter 时需用 `CASE` 从 `make` 映射。 |
+| make | TEXT | text |  |  | 卡车品牌或制造商。总部映射：`Peterbilt` -> `Texas (TX)`，`Mack` -> `North Carolina (NC)`，`Kenworth` -> `Washington (WA)`；truck headquarter 语义需用 `CASE` 从 `make` 映射。 |
 | model_year | INTEGER | integer |  |  | 卡车生产年份。数值越大通常表示越新；问 newest 用 `MAX(model_year)`，问 oldest 用 `MIN(model_year)`。 别名：model year。 |
 
 样例数据（前 5 行）：
@@ -187,19 +187,19 @@
 
 ## 7. SQL 生成注意事项
 
-- `shipment` 是事实表，客户、司机、卡车、城市都需通过编号连接到维表；默认保持 shipment 行粒度，除非题目要求按客户、司机、城市或卡车聚合。
+- `shipment` 是事实表，客户、司机、卡车、城市都需通过编号连接到维表；默认保持 shipment 行粒度，除非需要按客户、司机、城市或卡车聚合。
 - 地理字段需先判断层级：`shipment.city_id -> city.city_name/state` 表示发运目的地，`customer.city/state/zip` 表示客户地址，`driver.city/state/zip_code` 表示司机住址；不要混作同一地理口径。
-- 目的地名称默认按最具体字段匹配。题目说 transported to、bound for、destination city、shipped to 后跟普通地名时，优先匹配 `city.city_name`；只有明确出现 state、belong to、in the state of 等州/省语义时，才使用 `city.state`。
-- `city.state` 存完整州名，如 `New York`、`New Jersey`；`customer.state` 和 `driver.state` 存两字母缩写，如 `NY`、`NJ`、`CA`、`SC`。题目问客户或司机所在州时用对应地址表的缩写列，问发运目的城市所属州时用 `city.state`。
+- 目的地名称默认按最具体字段匹配。transported to、bound for、destination city、shipped to 后接普通地名时，优先匹配 `city.city_name`；只有 state、belong to、in the state of 等州/省语义时，才使用 `city.state`。
+- `city.state` 存完整州名，如 `New York`、`New Jersey`；`customer.state` 和 `driver.state` 存两字母缩写，如 `NY`、`NJ`、`CA`、`SC`。客户或司机所在州使用对应地址表的缩写列；发运目的城市所属州使用 `city.state`。
 - 字符串值必须按数据库原文精确匹配，不要自行改写地名或补标点。例如库中城市为 `New York`，不要改成 `New York City`；客户名 `S K L Enterprises Inc` 在表中没有句点。
-- `weight` 是单票 shipment 重量。题目问单票 shipment 的重量、列出 shipment weight、或筛选 “shipment with weight ...” 时直接使用 `shipment.weight`。
-- 题目问司机、客户、城市等实体 transported/shipped weight greater than 某阈值时，通常表示实体累计运输重量，应按实体 ID `GROUP BY` 后用 `HAVING SUM(weight) ...`；只有明确说 single shipment、each shipment 或某一条 shipment 时，才用单票 `WHERE weight ...`。
-- 日期字段 `shipment.ship_date` 是文本，格式为 `YYYY-MM-DD`。`on DATE`、`shipped by DATE` 在本库通常按发货日期精确匹配；只有题目明确 before、earlier than、no later than、up to 等范围语义时，才使用 `<` 或 `<=`。
-- 姓名输出按题面决定：明确问 full name 或单个 driver name 时可用 `first_name || ' ' || last_name`；明确要求 first name and last name 时返回两列；不要因为姓名拆成两个字段就默认改变输出列数。
-- 问每个司机平均每月运送多少 shipment 时，分母应是全库不同年月数：`COUNT(DISTINCT STRFTIME('%Y-%m', ship_date))`，并保留没有 shipment 的司机：`driver LEFT JOIN shipment`；不要用不同日期数作分母。
-- 百分比的分母应与题目限定后的总体保持同一行粒度。问 shipment 百分比时分母是 shipment 行，问 customer 百分比时分母才是 customer；不要在分子或分母中随意切换到 `DISTINCT customer`。
+- `weight` 是单票 shipment 重量。单票重量、shipment weight 或按单票重量筛选时直接使用 `shipment.weight`。
+- 司机、客户、城市等实体的 transported/shipped weight 阈值通常表示实体累计运输重量，应按实体 ID `GROUP BY` 后用 `HAVING SUM(weight) ...`；single shipment、each shipment 或某一条 shipment 语义才用单票 `WHERE weight ...`。
+- 日期字段 `shipment.ship_date` 是文本，格式为 `YYYY-MM-DD`。`on DATE`、`shipped by DATE` 通常按发货日期精确匹配；before、earlier than、no later than、up to 等范围语义才使用 `<` 或 `<=`。
+- 姓名输出按要求的列粒度决定：full name 或单个 driver name 可用 `first_name || ' ' || last_name`；first name and last name 应返回两列；不要因为姓名拆成两个字段就默认改变输出列数。
+- 计算每个司机平均每月 shipment 数时，分母应是全库不同年月数：`COUNT(DISTINCT STRFTIME('%Y-%m', ship_date))`，并保留没有 shipment 的司机：`driver LEFT JOIN shipment`；不要用不同日期数作分母。
+- 百分比的分母应与限定后的总体保持同一行粒度。shipment 百分比的分母是 shipment 行；customer 百分比的分母才是 customer；不要在分子或分母中随意切换到 `DISTINCT customer`。
 - `oldest` 对 `model_year` 使用 `MIN(model_year)`，`newest/latest` 使用 `MAX(model_year)`。
-- 问 “highest shipments/most shipments” 时按 shipment 数量 `COUNT(ship_id)` 排序，不要按 `SUM(weight)` 排序；问 truck headquarter 时用 `truck.make` 映射总部名称，并保留映射中的州缩写格式。
+- highest shipments/most shipments 等数量极值按 shipment 数量 `COUNT(ship_id)` 排序，不要按 `SUM(weight)` 排序；truck headquarter 使用 `truck.make` 映射总部名称，并保留映射中的州缩写格式。
 
 ## 8. 使用提示
 

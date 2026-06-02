@@ -150,15 +150,15 @@
 ## 7. SQL 生成注意事项
 
 - `data.ID`、`price.ID`、`production.ID` 可连接同一车辆记录；但 `production` 是生产/上市记录表，同一 `ID` 可能对应多个 `model_year`，连接后默认保留这些多行记录。
-- 默认保持查询涉及的事实表或记录表行粒度，不主动 `DISTINCT`。只有题目明确出现 distinct、different、unique，或明确要求唯一 car/model/entity 时，才使用 `COUNT(DISTINCT ...)` 或 `SELECT DISTINCT ...`。
+- 默认保持查询涉及的事实表或记录表行粒度，不主动 `DISTINCT`。只有 distinct、different、unique 或唯一 car/model/entity 等去重语义明确时，才使用 `COUNT(DISTINCT ...)` 或 `SELECT DISTINCT ...`。
 - 按产地、生产年份、上市记录统计 “how many cars”、计算平均价格/重量/马力、或计算百分比时，若查询连接了 `production`，默认按连接后的 production 记录行计算；不要用 `IN (SELECT DISTINCT ID ...)` 或 `COUNT(DISTINCT ID)` 把多年份记录折叠掉。
-- 百分比的分子和分母必须保持同一行粒度。若题目问某产地车辆记录占比，分母应来自同一个 `production JOIN country` 结果；不要把分子按 production 行算、分母却改成 `data` 的唯一车辆行数。
-- `model` 与 `model_year` 口径不同：`data.model` 是两位车型年份编码（70、71、72...），`production.model_year` 是四位生产/上市年份（1970、1971...）。题目出现完整年份 1970/1971 时优先使用 `production.model_year`，不要自动改写为 `data.model = 0`。
-- 题目说 introduced、introduced to the market、market year、produced in YEAR 时使用 `production.model_year`；如果返回年份列表，再根据题目是否要求 unique/different 判断是否 `DISTINCT`。
-- `car_name` 在库中是小写原文，SQLite 字符串比较区分大小写；题目中的车型名应映射为数据库原文小写值。不要改成标题大小写，也不要默认 `LIKE '%...%'`。
-- 题目问 fastest car 时，优先确认题目指标：若语义是动力最强，按 `data.horsepower DESC`；若明确问 acceleration time，才使用 `data.acceleration`。
-- 查询国家、价格、年份列表时不要随意 `LIMIT 1`。只有题目要求单个最高/最低/最重/最便宜等极值实体时才 `LIMIT 1`；极值查询若先选 ID 再连接 `production`，需注意该 ID 可能对应多条生产年份记录。
-- “how many times introduced” 这类问题按生产/上市记录次数计数；“how many different years/models/entities” 才按不同年份或不同实体去重。
+- 百分比的分子和分母必须保持同一行粒度。产地车辆记录占比的分母应来自同一个 `production JOIN country` 结果；不要把分子按 production 行算、分母却改成 `data` 的唯一车辆行数。
+- `model` 与 `model_year` 口径不同：`data.model` 是两位车型年份编码（70、71、72...），`production.model_year` 是四位生产/上市年份（1970、1971...）。完整年份 1970/1971 等优先使用 `production.model_year`，不要自动改写为 `data.model = 0`。
+- introduced、introduced to the market、market year、produced in YEAR 等生产/上市年份语义应使用 `production.model_year`；返回年份列表时，再根据 unique/different 等去重语义判断是否 `DISTINCT`。
+- `car_name` 在库中是小写原文，SQLite 字符串比较区分大小写；车型名应映射为数据库原文小写值。不要改成标题大小写，也不要默认 `LIKE '%...%'`。
+- fastest car 的指标需先确认语义：若表示动力最强，按 `data.horsepower DESC`；若明确表示 acceleration time，才使用 `data.acceleration`。
+- 查询国家、价格、年份列表时不要随意 `LIMIT 1`。只有要求单个最高/最低/最重/最便宜等极值实体时才 `LIMIT 1`；极值查询若先选 ID 再连接 `production`，需注意该 ID 可能对应多条生产年份记录。
+- how many times introduced 等次数语义按生产/上市记录次数计数；how many different years/models/entities 等去重语义才按不同年份或不同实体去重。
 - 价格、油耗、马力、重量、排量、加速等数值字段单位不同，排序或比较前需确认题目要求的指标。
 
 ## 8. 使用提示

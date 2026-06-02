@@ -142,17 +142,17 @@ Use the database JSON record for the full schema.
 ## 7. SQL 生成注意事项
 
 - `routes` 中同时保存机场编号和机场代码，连接机场表优先用 `src_apid/dst_apid`。
-- `airlines.active` 是 Y/N 文本；只有题目明确说 active/current/active status/operating status is Y 时才筛选 `active = 'Y'`。普通的 “How many airlines operate out of each country” 在本库正式 Gold 口径是按 `airlines.country` 统计所有航空公司，不筛选 `active = 'Y'`。
+- `airlines.active` 是 Y/N 文本；只有自然语言问题明确要求 active/current/active status/operating status 时才筛选 `active = 'Y'`，一般按国家或航空公司统计时不要自动加入 active 条件。
 - `airports.x/y` 分别为经度/纬度，不要和常见 lat/lng 顺序混淆。
-- 不要主动排除 `airports.city` 为空或空字符串的记录，除非题目明确要求“有效城市/非空城市”。正式任务中的 Gold SQL 通常直接按 `city` 分组或计数，额外加 `city IS NOT NULL`、`TRIM(city) <> ''` 会改变结果。
-- 问“每个源机场/目的机场的航线数量”时，通常用 `airports` 与 `routes` 的 INNER JOIN，按 `routes.src_apid` 或 `routes.dst_apid` 连接并按机场名称分组；不要使用 LEFT JOIN 纳入 0 条航线的机场，除非题目明确要求包含没有航线的机场。
-- “each source airport / each destination airport” 且返回机场名称时，优先按机场实体粒度分组：`GROUP BY airports.apid, airports.name` 或 `GROUP BY routes.src_apid/dst_apid, airports.name`。只有题目明确说 “for each airport name” 时才可只按 `airports.name` 分组。
-- 题目问 “different airports” 时必须使用 `COUNT(DISTINCT routes.src_apid)` 或 `COUNT(DISTINCT routes.dst_apid)`，不要用普通 `COUNT()`。
-- 问 “for each country and airline name / airline in that country, how many routes” 时，country 指 `airlines.country`，不是起点或终点机场所在国家；除非题目明确说 source/destination airport country，否则不要额外连接 `airports` 来取国家。
+- 不要主动排除 `airports.city` 为空或空字符串的记录，除非问题明确要求有效城市或非空城市；额外加 `city IS NOT NULL`、`TRIM(city) <> ''` 会改变分组或计数结果。
+- 统计源机场或目的机场的航线数量时，通常用 `airports` 与 `routes` 的 INNER JOIN，按 `routes.src_apid` 或 `routes.dst_apid` 连接并按机场实体分组；只有明确要求包含没有航线的机场时才使用 LEFT JOIN。
+- 返回源机场或目的机场名称并分组时，优先按机场实体粒度分组：`GROUP BY airports.apid, airports.name` 或 `GROUP BY routes.src_apid/dst_apid, airports.name`；只有明确按机场名称聚合时才只按 `airports.name` 分组。
+- 统计不同机场数量时必须使用 `COUNT(DISTINCT routes.src_apid)` 或 `COUNT(DISTINCT routes.dst_apid)`，不要用普通 `COUNT()`。
+- 按航空公司所在国家和航空公司名称统计航线时，国家字段指 `airlines.country`；只有明确要求源机场或目的机场所在国家时，才连接 `airports` 获取机场国家。
 
 ## 8. 使用提示
 
 - 自然语言问题中的实体名称、指标名称和时间条件，建议优先映射到上方字段说明中含义明确的字段。
 - 如果字段没有显式外键，但字段名包含 `_id`、`code`、`name` 等，应结合样例数据判断是否可作为连接键。
 - 涉及日期、时间、单位换算、百分比、最高/最低、平均值等问题时，应额外核对字段单位和聚合粒度。
-- 本文档提供数据库级知识；具体题目的隐含口径仍需结合 `task_knowledge/`、`task_fix/` 和正式评测记录判断。
+- 本文档提供数据库级知识；具体问题的隐含口径仍需结合题面措辞、字段样例和查询粒度判断。

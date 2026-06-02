@@ -157,13 +157,13 @@ Use the database JSON record for the full schema.
 - `flight.aid` 是执行航班的飞机编号，航班距离 `flight.distance` 与飞机航程 `aircraft.distance` 含义不同。
 - 出发和到达时间为文本日期时间，比较前需确认格式。
 - 日期/时间多为文本字段：`flight.departure_date`、`flight.arrival_date`；做范围筛选或排序前需确认格式。
-- 问“认证人数最少的飞机/least people certified to fly”时，应从 `aircraft` 出发 `LEFT JOIN certificate`，这样没有任何证书记录的飞机也能以 0 计入；不要只从 `certificate` 内连接。
-- 输出列顺序要严格跟随题目表述，例如 “salary and name” 输出 `salary, name`，不要改成 `name, salary`。
-- 问“most certificates on aircrafts with distance more than X”时，在筛选 `aircraft.distance > X` 后按员工分组统计证书数量。
+- 统计每架飞机的认证人数且需要包含没有证书记录的飞机时，应从 `aircraft` 出发 `LEFT JOIN certificate`，让无认证飞机计为 0；只从 `certificate` 内连接会丢失 0 次记录。
+- 输出列顺序应严格跟随自然语言问题中的字段顺序，不要因为常见展示习惯调整列顺序。
+- 按飞机属性限定认证记录后再统计员工证书数量时，应先连接并筛选 `aircraft`，再按员工分组聚合 `certificate`。
 
 ## 8. 使用提示
 
 - 自然语言问题中的实体名称、指标名称和时间条件，建议优先映射到上方字段说明中含义明确的字段。
 - 如果字段没有显式外键，但字段名包含 `_id`、`code`、`name` 等，应结合样例数据判断是否可作为连接键。
 - 涉及日期、时间、单位换算、百分比、最高/最低、平均值等问题时，应额外核对字段单位和聚合粒度。
-- 本文档提供数据库级知识；具体题目的隐含口径仍需结合 `task_knowledge/`、`task_fix/` 和正式评测记录判断。
+- 本文档提供数据库级知识；具体问题的隐含口径仍需结合题面措辞、字段样例和查询粒度判断。

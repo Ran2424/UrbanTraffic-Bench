@@ -63,7 +63,7 @@
 | id | INTEGER | integer | PK, NOT NULL |  | the unique id number representing the cars 样例值：1、2、3。 |
 | train_id | INTEGER | integer | FK, DEFAULT NULL | trains.id | 外键，指向 `trains.id`，表示本记录关联的列车。 |
 | position | INTEGER | integer | DEFAULT NULL |  | 车厢在列车中的位置序号。 取值说明：1-4: commonsense evidence: 1: head car 4: tail car。 |
-| shape | TEXT | text | DEFAULT NULL |  | 车厢形状。取值包括 `rectangle`、`bucket`、`u_shaped`、`hexagon`、`ellipse`。注意正式数据和 Gold SQL 使用 `ellipse`，不要写成 `elipse`。 |
+| shape | TEXT | text | DEFAULT NULL |  | 车厢形状。取值包括 `rectangle`、`bucket`、`u_shaped`、`hexagon`、`ellipse`；数据库中使用 `ellipse`，不要写成 `elipse`。 |
 | len | TEXT | text | DEFAULT NULL |  | 车厢长度类别。 别名：length。 取值说明：• short • long。 |
 | sides | TEXT | text | DEFAULT NULL |  | 车厢侧面属性。 取值说明：• not_double • double。 |
 | roof | TEXT | text | DEFAULT NULL |  | 车厢顶部形状。 取值说明：commonsense evidence: • none: the roof is open • peaked • flat • arc • jagged。 |
@@ -107,13 +107,13 @@
 - `cars` 是车厢属性表，不是汽车；每列 train 可对应多个 cars 行。
 - `position` 表示车厢顺序，筛选第 N 节车厢时用该字段。
 - `len` 是长度类别字段名，避免与 SQL 函数或语义中的字符串长度混淆。
-- 题目中的 “4 short cars” 在本库任务里可能指 `position = 4 AND len = 'short'`，即第 4 节车厢是短车厢；不要默认理解为一列车有 4 节短车厢，除非题目明确说 “four short cars” 或 “has 4 cars that are short”。
-- 问 “How many wheels do the long/short cars have?” 通常要求车轮总数，使用 `SUM(wheels)`，不是列出不同的 `wheels` 取值。
-- 问 head car/tail car 时，head car 对应 `position = 1`，tail car 通常对应最大位置或 `position = 4`。
+- 车厢数量与车厢位置要区分：数字紧邻长度类别时需结合措辞判断是“第 N 节车厢”还是“N 节某长度车厢”；位置条件使用 `position`，数量条件需要按车厢行计数或聚合。
+- 车轮数指标需区分总数和枚举值：要求总轮数时使用 `SUM(wheels)`，要求不同轮数取值时才使用 `DISTINCT wheels`。
+- head car 通常对应 `position = 1`；tail car 通常对应最大 `position`，若数据固定为 4 节车厢也可对应 `position = 4`。
 
 ## 8. 使用提示
 
 - 自然语言问题中的实体名称、指标名称和时间条件，建议优先映射到上方字段说明中含义明确的字段。
 - 如果字段没有显式外键，但字段名包含 `_id`、`code`、`name` 等，应结合样例数据判断是否可作为连接键。
 - 涉及日期、时间、单位换算、百分比、最高/最低、平均值等问题时，应额外核对字段单位和聚合粒度。
-- 本文档提供数据库级知识；具体题目的隐含口径仍需结合 `task_knowledge/`、`task_fix/` 和正式评测记录判断。
+- 本文档提供数据库级知识；具体问题的隐含口径仍需结合题面措辞、字段样例和查询粒度判断。

@@ -184,11 +184,11 @@ Use the database JSON record for the full schema.
 - `status` 是时间序列快照，按站点聚合前要明确是按记录数、时间点还是站点去重。
 - `trip` 同时有站点名和站点编号；判断起点/终点站所在城市、站点容量、经纬度或安装日期时，应通过 `start_station_id` 或 `end_station_id` 连接 `station.id`，不要用站点名称字符串猜城市。
 - `trip.start_station_name`、`trip.end_station_name` 是站点名称，不等同于城市名称。例如判断是否在 `San Francisco`、`Mountain View`、`Palo Alto` 等城市，应连接 `station.city`。
-- 题目说 bike traveled the most、most trips、most frequently used bike 等默认按 trip 记录次数 `COUNT(*)` 排序；只有明确问 total duration、total time、longest travel time 时，才按 `SUM(duration)` 或 `duration` 排序。
-- 极值查询需保留并列结果：如果题目问达到最小/最大温差、最高/最低天气指标的日期，通常应先求极值，再用 `WHERE 指标 = (SELECT MIN/MAX(...))` 返回所有并列日期；不要简单 `ORDER BY ... LIMIT 1`。
+- bike traveled the most、most trips、most frequently used bike 等使用频次语义默认按 trip 记录次数 `COUNT(*)` 排序；只有 total duration、total time、longest travel time 等时长语义才按 `SUM(duration)` 或 `duration` 排序。
+- 极值日期查询需保留并列结果：达到最小/最大温差、最高/最低天气指标的日期，通常应先求极值，再用 `WHERE 指标 = (SELECT MIN/MAX(...))` 返回所有并列日期；不要简单 `ORDER BY ... LIMIT 1`。
 - 天气事件 `events` 可能是组合文本，如 `Fog-Rain`、`Rain-Thunderstorm`，也可能为空。排除 Fog 或 Rain 时应使用 `events IS NULL OR (events NOT LIKE '%Fog%' AND events NOT LIKE '%Rain%')`；不要只用 `NOT IN ('Fog','Rain')`。
 - `weather` 和 `trip` 都有 `zip_code`，但粒度不同：`weather` 是按日期和邮编的天气记录，`trip` 是单次行程记录。按 zip 同时要求天气均值和 trip 数量时，应分别按 zip 聚合后再组合条件，避免直接明细 join 放大行数和改变平均值。
-- 题目只问天气日期、温度和 zip code 时，通常直接查询 `weather`；不要因为出现 “station” 就强行连接 `station` 或 `trip`，除非题目明确要求站点属性或行程属性。
+- 天气日期、温度和 zip code 等天气属性通常直接查询 `weather`；不要因为文本中出现 station 就强行连接 `station` 或 `trip`，除非明确需要站点属性或行程属性。
 - `weather.date` 与 `trip.start_date/end_date` 格式不同，按日期关联前需要截取或格式化日期部分；不要直接把完整 datetime 与天气日期等值连接。
 - 日期/时间多为文本字段：`station.installation_date`、`status.time`、`trip.start_date`、`trip.end_date`、`weather.date`；做范围筛选或排序前需确认格式。
 
