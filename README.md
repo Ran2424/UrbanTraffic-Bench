@@ -1,8 +1,8 @@
 # TrafficSQL-Bench
 
-**TrafficSQL-Bench** 是一个面向交通领域的 Text-to-SQL / NL2SQL 基准数据集。数据集整理自公开 Spider 与 BIRD 交通相关子集，覆盖机场航空、铁路交通、共享单车、道路车辆、船运物流、公共服务、赛车竞赛等 7 类交通场景。
+**TrafficSQL-Bench** 是一个面向交通领域的 Text-to-SQL / NL2SQL 基准数据集，覆盖机场航空、铁路交通、共享单车、道路车辆、船运物流、公共服务、赛车竞赛等 7 类交通场景。
 
-本仓库已经整理好数据库 schema、自然语言问题、gold SQL、数据库知识说明，以及逐库压缩后的 SQLite 数据库文件。
+本仓库提供可直接使用的数据库 schema、自然语言问题、gold SQL、数据库知识说明，以及逐库压缩后的 SQLite 数据库文件。读者可以按场景、按数据库或按全量任务进行评测。
 
 ## 数据规模
 
@@ -16,18 +16,14 @@
 - 修订后 task：223 条
 - 其中修订问题文本：17 条
 - 其中修订 gold SQL：220 条
-- SQLite 原始总大小：约 5.0GB
+- SQLite 未压缩总大小：约 5.0GB
 - 逐库 `.7z` 压缩包：28 个，压缩后总大小约 258.5MB
 
-## Task 来源与修订说明
+## Task 版本说明
 
-本仓库发布的 task **不是未经修订的原始 Spider/BIRD 问题集合**。发布版使用的是修订后的正式版本：
+本仓库中的 `tasks/` 是 TrafficSQL-Bench 的正式评测任务。数据整理过程中，部分原始问题文本或 gold SQL 经过人工校核与修订，以减少题意歧义、SQL 明显错误和大结果校核口径不一致等问题。
 
-1. 先以 `Data/normalized_text2sql_tasks/tasks/` 中的规范化 task 为底稿；
-2. 再对存在修复记录的 task，使用 `Data/normalized_text2sql_tasks/task_fix/<task_id>/<task_id>.fixed.json` 覆盖对应的 question、gold SQL、evidence 和执行校核结果；
-3. 最终导出为本仓库中的 `tasks/tasks.jsonl`、`tasks/tasks.csv`、`tasks/by_database/*.jsonl` 和 `tasks/by_scenario/*.jsonl`。
-
-因此，`tasks/` 目录中的 `question` 与 `gold_sql` 是当前 benchmark 的正式评测口径。为便于追溯，修订过的 task 额外保留了：
+因此，评测时应以本仓库 `tasks/` 目录中的 `question` 与 `gold_sql` 为准。为便于追溯，修订过的 task 额外保留了：
 
 - `is_corrected`
 - `correction_type`
@@ -36,7 +32,7 @@
 - `original_question`
 - `original_gold_sql`
 
-修订类型包括 gold SQL 修正、问题文本修正、大结果校核口径修正，以及 question + SQL 同步修正。
+修订类型包括 gold SQL 修正、问题文本修正、大结果校核口径修正，以及 question + SQL 同步修正。当前共 223 条 task 带有修订追踪字段，其中 17 条修订问题文本，220 条修订 gold SQL。
 
 ## 场景
 
@@ -227,11 +223,11 @@ tasks/by_database/train__shipping.jsonl
 
 更完整的字段说明见 `docs/TASKS.md`。
 
-## 数据来源
+## 数据来源与使用
 
-TrafficSQL-Bench 整理自公开 Text-to-SQL 数据集的交通相关子集：
+TrafficSQL-Bench 基于公开 Text-to-SQL 数据集中的交通相关数据库和问题整理而成，主要包括：
 
 - Spider traffic subset
 - BIRD train traffic subset
 
-发布或引用本 benchmark 时，请同时遵守原始数据集的许可证和引用要求。开源注意事项见 `docs/OPEN_SOURCE_NOTES.md`。
+使用、发布或引用本 benchmark 时，请同时遵守原始数据集的许可证和引用要求。更多说明见 `docs/OPEN_SOURCE_NOTES.md`。

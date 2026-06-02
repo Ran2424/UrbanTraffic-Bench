@@ -1,24 +1,18 @@
 # Task 格式说明
 
-发布包中的 task 采用瘦身格式，保留问题、gold SQL、schema 引用、执行校核摘要和修订追踪字段，不保留大体量完整查询结果。
+TrafficSQL-Bench 的 task 采用轻量格式，保留问题、gold SQL、schema 引用、执行校核摘要和修订追踪字段，不保留大体量完整查询结果。
 
-## 来源与修订口径
+## 任务版本与修订口径
 
-`tasks/` 目录中的 task 使用修订后的正式发布口径，不是未经修订的原始 Spider/BIRD 样本。
+`tasks/` 目录中的 task 是 TrafficSQL-Bench 的正式评测任务。数据整理过程中，部分原始问题文本或 gold SQL 经过人工校核与修订，以减少题意歧义、SQL 明显错误和大结果校核口径不一致等问题。
 
-生成逻辑：
-
-1. 以 `Data/normalized_text2sql_tasks/tasks/` 的规范化 task 为底稿。
-2. 如果 `Data/normalized_text2sql_tasks/task_fix/<task_id>/<task_id>.fixed.json` 存在，则使用该 fixed 版本覆盖 question、gold SQL、evidence 和执行校核结果。
-3. 将覆盖后的正式版本导出到本仓库。
-
-当前共应用 `223` 条 task 修订：
+评测时应以本仓库 `tasks/*.jsonl` 中的 `question` 和 `gold_sql` 为准。当前共 `223` 条 task 带有修订追踪字段：
 
 - 修订问题文本：`17` 条
 - 修订 gold SQL：`220` 条
 - 同时修订问题文本和 gold SQL：`15` 条
 
-因此，评测时应以本仓库 `tasks/*.jsonl` 中的 `question` 和 `gold_sql` 为准。对于 `is_corrected = true` 的 task，可通过 `original_question` 和 `original_gold_sql` 回看修订前内容。
+对于 `is_corrected = true` 的 task，可通过 `original_question` 和 `original_gold_sql` 回看修订前内容。
 
 ## 字段
 
@@ -28,7 +22,7 @@
 | `source` | 数据来源，`spider_data` 或 `train`。 |
 | `split` | 原始 split。 |
 | `db_id` | 原始数据集中的数据库 ID。 |
-| `database_uid` | 发布包内唯一数据库 ID。 |
+| `database_uid` | 本数据集内唯一数据库 ID。 |
 | `scenario` | 场景 ID。 |
 | `scenario_zh` | 中文场景名。 |
 | `question` | 自然语言问题。 |
