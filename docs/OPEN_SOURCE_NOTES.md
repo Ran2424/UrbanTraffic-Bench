@@ -18,3 +18,16 @@
 ## 当前目录状态
 
 当前 release 目录已提供逐库 `.7z` 压缩包，并保留 `database_files/database_files_manifest.csv` 与 `database_files/archives_manifest.csv` 两份清单，便于后续按开源平台限制选择普通 Git、Git LFS 或 release assets。
+
+## Task 修订说明
+
+本仓库中的 task 使用修订后的正式发布口径，不是未经修订的原始 Spider/BIRD 样本。整理流程中对部分原始问题或 gold SQL 做了人工校核与修复，并将修复记录保存在 task 字段中：
+
+- `is_corrected`
+- `correction_type`
+- `correction_category`
+- `correction_reason`
+- `original_question`
+- `original_gold_sql`
+
+当前共应用 223 条 task 修订，其中 17 条修订问题文本，220 条修订 gold SQL。开源说明中应明确这一点，避免用户把本仓库 task 误解为原始数据集的逐字拷贝。

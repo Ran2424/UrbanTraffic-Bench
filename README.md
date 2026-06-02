@@ -13,8 +13,30 @@
 - BIRD train 交通子集 task：561 条
 - 完整结果 task：1686 条
 - 大结果校核 task：28 条
+- 修订后 task：223 条
+- 其中修订问题文本：17 条
+- 其中修订 gold SQL：220 条
 - SQLite 原始总大小：约 5.0GB
 - 逐库 `.7z` 压缩包：28 个，压缩后总大小约 258.5MB
+
+## Task 来源与修订说明
+
+本仓库发布的 task **不是未经修订的原始 Spider/BIRD 问题集合**。发布版使用的是修订后的正式版本：
+
+1. 先以 `Data/normalized_text2sql_tasks/tasks/` 中的规范化 task 为底稿；
+2. 再对存在修复记录的 task，使用 `Data/normalized_text2sql_tasks/task_fix/<task_id>/<task_id>.fixed.json` 覆盖对应的 question、gold SQL、evidence 和执行校核结果；
+3. 最终导出为本仓库中的 `tasks/tasks.jsonl`、`tasks/tasks.csv`、`tasks/by_database/*.jsonl` 和 `tasks/by_scenario/*.jsonl`。
+
+因此，`tasks/` 目录中的 `question` 与 `gold_sql` 是当前 benchmark 的正式评测口径。为便于追溯，修订过的 task 额外保留了：
+
+- `is_corrected`
+- `correction_type`
+- `correction_category`
+- `correction_reason`
+- `original_question`
+- `original_gold_sql`
+
+修订类型包括 gold SQL 修正、问题文本修正、大结果校核口径修正，以及 question + SQL 同步修正。
 
 ## 场景
 
@@ -198,7 +220,8 @@ tasks/by_database/train__shipping.jsonl
   "knowledge_ref": "knowledge/by_database/spider_data__bike_1_knowledge_database.md",
   "execution_status": "ok",
   "result_mode": "full_rows",
-  "result_row_count": 179
+  "result_row_count": 179,
+  "is_corrected": false
 }
 ```
 
