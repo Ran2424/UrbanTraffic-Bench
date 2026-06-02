@@ -1,0 +1,100 @@
+[
+  {
+    "scenario": "aviation_airport",
+    "scenario_zh": "机场航空",
+    "scenario_en": "Airport and aviation",
+    "database_count": 8,
+    "task_count": 512,
+    "total_rows": 791651,
+    "databases": [
+      "spider_data__aircraft",
+      "spider_data__flight_1",
+      "spider_data__flight_2",
+      "spider_data__flight_4",
+      "spider_data__flight_company",
+      "spider_data__pilot_1",
+      "spider_data__pilot_record",
+      "train__airline"
+    ]
+  },
+  {
+    "scenario": "rail_train_station",
+    "scenario_zh": "铁路交通",
+    "scenario_en": "Rail transport",
+    "database_count": 3,
+    "task_count": 84,
+    "total_rows": 147,
+    "databases": [
+      "spider_data__railway",
+      "spider_data__train_station",
+      "train__trains"
+    ]
+  },
+  {
+    "scenario": "bike_micromobility",
+    "scenario_zh": "共享单车",
+    "scenario_en": "Bike sharing",
+    "database_count": 2,
+    "task_count": 217,
+    "total_rows": 72669251,
+    "databases": [
+      "spider_data__bike_1",
+      "train__bike_share_1"
+    ]
+  },
+  {
+    "scenario": "road_vehicle_business",
+    "scenario_zh": "道路车辆",
+    "scenario_en": "Road vehicles",
+    "database_count": 5,
+    "task_count": 388,
+    "total_rows": 6292,
+    "databases": [
+      "spider_data__car_1",
+      "spider_data__vehicle_driver",
+      "spider_data__vehicle_rent",
+      "train__car_retails",
+      "train__cars"
+    ]
+  },
+  {
+    "scenario": "maritime_shipping_logistics",
+    "scenario_zh": "船运物流",
+    "scenario_en": "Maritime shipping and logistics",
+    "database_count": 4,
+    "task_count": 262,
+    "total_rows": 1725,
+    "databases": [
+      "spider_data__boat_1",
+      "spider_data__ship_1",
+      "spider_data__ship_mission",
+      "train__shipping"
+    ]
+  },
+  {
+    "scenario": "public_service_transport",
+    "scenario_zh": "公共服务",
+    "scenario_en": "Public service transport",
+    "database_count": 1,
+    "task_count": 18,
+    "total_rows": 24,
+    "databases": [
+      "spider_data__school_bus"
+    ]
+  },
+  {
+    "scenario": "racing_competition",
+    "scenario_zh": "赛车竞赛",
+    "scenario_en": "Racing competition",
+    "database_count": 5,
+    "task_count": 233,
+    "total_rows": 88482,
+    "databases": [
+      "spider_data__bike_racing",
+      "spider_data__car_racing",
+      "spider_data__car_road_race",
+      "spider_data__formula_1",
+      "spider_data__race_track"
+    ]
+  }
+]

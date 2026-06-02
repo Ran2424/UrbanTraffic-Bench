@@ -1,0 +1,890 @@
+{
+  "database_uid": "train__car_retails",
+  "source": "train",
+  "db_id": "car_retails",
+  "scenario": "road_vehicle_business",
+  "scenario_zh": "道路车辆",
+  "scenario_en": "Road vehicles",
+  "task_count": 126,
+  "table_count": 8,
+  "column_count": 59,
+  "primary_key_column_count": 10,
+  "foreign_key_count": 8,
+  "total_rows": 3864,
+  "sqlite_file": "car_retails.sqlite",
+  "sqlite_source_path": "Data/normalized_text2sql_tasks/database_layer/train__car_retails/car_retails.sqlite",
+  "sqlite_size_bytes": 487424,
+  "sqlite_size_mb": 0.465,
+  "schema_ref": "schemas/by_database/train__car_retails.json",
+  "schema_markdown_ref": "schemas/by_database/train__car_retails.md",
+  "tasks_ref": "tasks/by_database/train__car_retails.jsonl",
+  "knowledge_ref": "knowledge/by_database/train__car_retails_knowledge_database.md",
+  "full_rows_task_count": 126,
+  "verification_only_task_count": 0,
+  "db_path_in_original_workspace": "Data/normalized_text2sql_tasks/database_layer/train__car_retails/car_retails.sqlite",
+  "tables": [
+    {
+      "table_name": "customers",
+      "columns": [
+        {
+          "name": "customerNumber",
+          "type": "INTEGER",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [],
+          "logical_type": "integer",
+          "description": "unique id number of customer",
+          "value_description": null,
+          "alias": "customer number",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "customerName",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "the name when the customer registered",
+          "value_description": null,
+          "alias": "customer name",
+          "description_data_format": "text"
+        },
+        {
+          "name": "contactLastName",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "contact last name",
+          "value_description": null,
+          "alias": "contact last name",
+          "description_data_format": "text"
+        },
+        {
+          "name": "contactFirstName",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "contact first name",
+          "value_description": null,
+          "alias": "contact first name",
+          "description_data_format": "text"
+        },
+        {
+          "name": "phone",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "phone",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "addressLine1",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "addressLine1",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "addressLine2",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "addressLine2",
+          "value_description": "commonsense evidence: addressLine1 + addressLine2 = entire address",
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "city",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "city",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "state",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "state",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "postalCode",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "postalCode",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "country",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "country",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "salesRepEmployeeNumber",
+          "type": "INTEGER",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [
+            {
+              "references_table": "employees",
+              "references_column": "employeeNumber",
+              "on_update": "NO ACTION",
+              "on_delete": "NO ACTION"
+            }
+          ],
+          "logical_type": "integer",
+          "description": "sales representative employee number",
+          "value_description": null,
+          "alias": "sales representative employee number",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "creditLimit",
+          "type": "REAL",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "real",
+          "description": "credit limit",
+          "value_description": null,
+          "alias": "credit limit",
+          "description_data_format": "real"
+        }
+      ]
+    },
+    {
+      "table_name": "employees",
+      "columns": [
+        {
+          "name": "employeeNumber",
+          "type": "INTEGER",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [],
+          "logical_type": "integer",
+          "description": "unique string ID of the employees",
+          "value_description": null,
+          "alias": "Employee Number",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "lastName",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "last name of employees",
+          "value_description": null,
+          "alias": "last name",
+          "description_data_format": "text"
+        },
+        {
+          "name": "firstName",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "first name of employees",
+          "value_description": null,
+          "alias": "first name",
+          "description_data_format": "text"
+        },
+        {
+          "name": "extension",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "extension number",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "email",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "email",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "officeCode",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [
+            {
+              "references_table": "offices",
+              "references_column": "officeCode",
+              "on_update": "NO ACTION",
+              "on_delete": "NO ACTION"
+            }
+          ],
+          "logical_type": "text",
+          "description": "office code of the employees",
+          "value_description": null,
+          "alias": "office code",
+          "description_data_format": "text"
+        },
+        {
+          "name": "reportsTo",
+          "type": "INTEGER",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [
+            {
+              "references_table": "employees",
+              "references_column": "employeeNumber",
+              "on_update": "NO ACTION",
+              "on_delete": "NO ACTION"
+            }
+          ],
+          "logical_type": "integer",
+          "description": "represents for organization structure such as who reports to whom",
+          "value_description": "commonsense evidence: \"reportsTO\" is the leader of the \"employeeNumber\"",
+          "alias": "reports to",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "jobTitle",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "job title",
+          "value_description": null,
+          "alias": "job title",
+          "description_data_format": "text"
+        }
+      ]
+    },
+    {
+      "table_name": "offices",
+      "columns": [
+        {
+          "name": "officeCode",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "unique ID of the office",
+          "value_description": "unique ID of the office",
+          "alias": "office code",
+          "description_data_format": "text"
+        },
+        {
+          "name": "city",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": null,
+          "value_description": null,
+          "alias": "city",
+          "description_data_format": "text"
+        },
+        {
+          "name": "phone",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "phone number",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "addressLine1",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "addressLine1",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "addressLine2",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "addressLine2",
+          "value_description": "commonsense evidence: addressLine1 + addressLine2 = entire address",
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "state",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": null,
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "country",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "country",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "postalCode",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "postalCode",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "territory",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "territory",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        }
+      ]
+    },
+    {
+      "table_name": "orderdetails",
+      "columns": [
+        {
+          "name": "orderNumber",
+          "type": "INTEGER",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [
+            {
+              "references_table": "orders",
+              "references_column": null,
+              "on_update": "NO ACTION",
+              "on_delete": "NO ACTION"
+            }
+          ],
+          "logical_type": "integer",
+          "description": "order number",
+          "value_description": null,
+          "alias": "order number",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "productCode",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [
+            {
+              "references_table": "products",
+              "references_column": null,
+              "on_update": "NO ACTION",
+              "on_delete": "NO ACTION"
+            }
+          ],
+          "logical_type": "text",
+          "description": "product code",
+          "value_description": null,
+          "alias": "product code",
+          "description_data_format": "text"
+        },
+        {
+          "name": "quantityOrdered",
+          "type": "INTEGER",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "integer",
+          "description": "quantity ordered",
+          "value_description": null,
+          "alias": "quantity ordered",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "priceEach",
+          "type": "REAL",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "real",
+          "description": "price for each",
+          "value_description": "commonsense evidence: total price = quantityOrdered x priceEach",
+          "alias": "price for each",
+          "description_data_format": "real"
+        },
+        {
+          "name": "orderLineNumber",
+          "type": "INTEGER",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "integer",
+          "description": "order Line Number",
+          "value_description": null,
+          "alias": "order Line Number",
+          "description_data_format": "integer"
+        }
+      ]
+    },
+    {
+      "table_name": "orders",
+      "columns": [
+        {
+          "name": "orderNumber",
+          "type": "INTEGER",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [],
+          "logical_type": "integer",
+          "description": "unique order number",
+          "value_description": "unique order number",
+          "alias": "order number",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "orderDate",
+          "type": "DATE",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "date",
+          "description": "order date",
+          "value_description": null,
+          "alias": "order date",
+          "description_data_format": "date"
+        },
+        {
+          "name": "requiredDate",
+          "type": "DATE",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "date",
+          "description": "required Date",
+          "value_description": null,
+          "alias": "required Date",
+          "description_data_format": "date"
+        },
+        {
+          "name": "shippedDate",
+          "type": "DATE",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "date",
+          "description": "shipped Date",
+          "value_description": null,
+          "alias": "shipped date",
+          "description_data_format": "date"
+        },
+        {
+          "name": "status",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "status",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "comments",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "comments",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "customerNumber",
+          "type": "INTEGER",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [
+            {
+              "references_table": "customers",
+              "references_column": "customerNumber",
+              "on_update": "NO ACTION",
+              "on_delete": "NO ACTION"
+            }
+          ],
+          "logical_type": "integer",
+          "description": "customer number",
+          "value_description": null,
+          "alias": "customer number",
+          "description_data_format": "integer"
+        }
+      ]
+    },
+    {
+      "table_name": "payments",
+      "columns": [
+        {
+          "name": "customerNumber",
+          "type": "INTEGER",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [
+            {
+              "references_table": "customers",
+              "references_column": "customerNumber",
+              "on_update": "NO ACTION",
+              "on_delete": "NO ACTION"
+            }
+          ],
+          "logical_type": "integer",
+          "description": "customer number",
+          "value_description": null,
+          "alias": "customer number",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "checkNumber",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "check Number",
+          "value_description": null,
+          "alias": "check Number",
+          "description_data_format": "text"
+        },
+        {
+          "name": "paymentDate",
+          "type": "DATE",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "date",
+          "description": "payment Date",
+          "value_description": null,
+          "alias": "payment Date",
+          "description_data_format": "date"
+        },
+        {
+          "name": "amount",
+          "type": "REAL",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "real",
+          "description": "amount",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "real"
+        }
+      ]
+    },
+    {
+      "table_name": "productlines",
+      "columns": [
+        {
+          "name": "productLine",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "unique product line name",
+          "value_description": null,
+          "alias": "product line",
+          "description_data_format": "text"
+        },
+        {
+          "name": "textDescription",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "text description",
+          "value_description": null,
+          "alias": "text description",
+          "description_data_format": "text"
+        },
+        {
+          "name": "htmlDescription",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "html description",
+          "value_description": null,
+          "alias": "html description",
+          "description_data_format": "text"
+        },
+        {
+          "name": "image",
+          "type": "BLOB",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "blob",
+          "description": "image",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "blob"
+        }
+      ]
+    },
+    {
+      "table_name": "products",
+      "columns": [
+        {
+          "name": "productCode",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "unique product code",
+          "value_description": null,
+          "alias": "product code",
+          "description_data_format": "text"
+        },
+        {
+          "name": "productName",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "product name",
+          "value_description": null,
+          "alias": "product name",
+          "description_data_format": "text"
+        },
+        {
+          "name": "productLine",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [
+            {
+              "references_table": "productlines",
+              "references_column": "productLine",
+              "on_update": "NO ACTION",
+              "on_delete": "NO ACTION"
+            }
+          ],
+          "logical_type": "text",
+          "description": "product line name",
+          "value_description": null,
+          "alias": "product line",
+          "description_data_format": "text"
+        },
+        {
+          "name": "productScale",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "product scale",
+          "value_description": null,
+          "alias": "product scale",
+          "description_data_format": "text"
+        },
+        {
+          "name": "productVendor",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "product vendor",
+          "value_description": null,
+          "alias": "product vendor",
+          "description_data_format": "text"
+        },
+        {
+          "name": "productDescription",
+          "type": "TEXT",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "product description",
+          "value_description": null,
+          "alias": "product description",
+          "description_data_format": "text"
+        },
+        {
+          "name": "quantityInStock",
+          "type": "INTEGER",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "integer",
+          "description": "quantity in stock",
+          "value_description": null,
+          "alias": "quantity in stock",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "buyPrice",
+          "type": "REAL",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "real",
+          "description": "buy price from vendors",
+          "value_description": null,
+          "alias": "buy price",
+          "description_data_format": "real"
+        },
+        {
+          "name": "MSRP",
+          "type": "REAL",
+          "not_null": true,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "real",
+          "description": "Manufacturer Suggested Retail Price",
+          "value_description": "commonsense evidence: expected profits: msrp - buyPrice",
+          "alias": "Manufacturer Suggested Retail Price",
+          "description_data_format": "real"
+        }
+      ]
+    }
+  ]
+}

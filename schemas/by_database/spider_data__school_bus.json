@@ -1,0 +1,238 @@
+{
+  "database_uid": "spider_data__school_bus",
+  "source": "spider_data",
+  "db_id": "school_bus",
+  "scenario": "public_service_transport",
+  "scenario_zh": "公共服务",
+  "scenario_en": "Public service transport",
+  "task_count": 18,
+  "table_count": 3,
+  "column_count": 14,
+  "primary_key_column_count": 4,
+  "foreign_key_count": 2,
+  "total_rows": 24,
+  "sqlite_file": "school_bus.sqlite",
+  "sqlite_source_path": "Data/normalized_text2sql_tasks/database_layer/spider_data__school_bus/school_bus.sqlite",
+  "sqlite_size_bytes": 28672,
+  "sqlite_size_mb": 0.027,
+  "schema_ref": "schemas/by_database/spider_data__school_bus.json",
+  "schema_markdown_ref": "schemas/by_database/spider_data__school_bus.md",
+  "tasks_ref": "tasks/by_database/spider_data__school_bus.jsonl",
+  "knowledge_ref": "knowledge/by_database/spider_data__school_bus_knowledge_database.md",
+  "full_rows_task_count": 18,
+  "verification_only_task_count": 0,
+  "db_path_in_original_workspace": "Data/normalized_text2sql_tasks/database_layer/spider_data__school_bus/school_bus.sqlite",
+  "tables": [
+    {
+      "table_name": "driver",
+      "columns": [
+        {
+          "name": "Driver_ID",
+          "type": "INT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [],
+          "logical_type": "number",
+          "description": null,
+          "value_description": null,
+          "alias": null,
+          "description_data_format": null
+        },
+        {
+          "name": "Name",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": null,
+          "value_description": null,
+          "alias": null,
+          "description_data_format": null
+        },
+        {
+          "name": "Party",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": null,
+          "value_description": null,
+          "alias": null,
+          "description_data_format": null
+        },
+        {
+          "name": "Home_city",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": null,
+          "value_description": null,
+          "alias": null,
+          "description_data_format": null
+        },
+        {
+          "name": "Age",
+          "type": "INT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "number",
+          "description": null,
+          "value_description": null,
+          "alias": null,
+          "description_data_format": null
+        }
+      ]
+    },
+    {
+      "table_name": "school",
+      "columns": [
+        {
+          "name": "School_ID",
+          "type": "INT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [],
+          "logical_type": "number",
+          "description": null,
+          "value_description": null,
+          "alias": null,
+          "description_data_format": null
+        },
+        {
+          "name": "Grade",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": null,
+          "value_description": null,
+          "alias": null,
+          "description_data_format": null
+        },
+        {
+          "name": "School",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": null,
+          "value_description": null,
+          "alias": null,
+          "description_data_format": null
+        },
+        {
+          "name": "Location",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": null,
+          "value_description": null,
+          "alias": null,
+          "description_data_format": null
+        },
+        {
+          "name": "Type",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": null,
+          "value_description": null,
+          "alias": null,
+          "description_data_format": null
+        }
+      ]
+    },
+    {
+      "table_name": "school_bus",
+      "columns": [
+        {
+          "name": "School_ID",
+          "type": "INT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [
+            {
+              "references_table": "school",
+              "references_column": "School_ID",
+              "on_update": "NO ACTION",
+              "on_delete": "NO ACTION"
+            }
+          ],
+          "logical_type": "number",
+          "description": null,
+          "value_description": null,
+          "alias": null,
+          "description_data_format": null
+        },
+        {
+          "name": "Driver_ID",
+          "type": "INT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [
+            {
+              "references_table": "driver",
+              "references_column": "Driver_ID",
+              "on_update": "NO ACTION",
+              "on_delete": "NO ACTION"
+            }
+          ],
+          "logical_type": "number",
+          "description": null,
+          "value_description": null,
+          "alias": null,
+          "description_data_format": null
+        },
+        {
+          "name": "Years_Working",
+          "type": "INT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "number",
+          "description": null,
+          "value_description": null,
+          "alias": null,
+          "description_data_format": null
+        },
+        {
+          "name": "If_full_time",
+          "type": "bool",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "others",
+          "description": null,
+          "value_description": null,
+          "alias": null,
+          "description_data_format": null
+        }
+      ]
+    }
+  ]
+}

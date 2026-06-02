@@ -1,0 +1,496 @@
+{
+  "database_uid": "train__shipping",
+  "source": "train",
+  "db_id": "shipping",
+  "scenario": "maritime_shipping_logistics",
+  "scenario_zh": "船运物流",
+  "scenario_en": "Maritime shipping and logistics",
+  "task_count": 106,
+  "table_count": 5,
+  "column_count": 32,
+  "primary_key_column_count": 5,
+  "foreign_key_count": 4,
+  "total_rows": 1684,
+  "sqlite_file": "shipping.sqlite",
+  "sqlite_source_path": "Data/normalized_text2sql_tasks/database_layer/train__shipping/shipping.sqlite",
+  "sqlite_size_bytes": 131072,
+  "sqlite_size_mb": 0.125,
+  "schema_ref": "schemas/by_database/train__shipping.json",
+  "schema_markdown_ref": "schemas/by_database/train__shipping.md",
+  "tasks_ref": "tasks/by_database/train__shipping.jsonl",
+  "knowledge_ref": "knowledge/by_database/train__shipping_knowledge_database.md",
+  "full_rows_task_count": 106,
+  "verification_only_task_count": 0,
+  "db_path_in_original_workspace": "Data/normalized_text2sql_tasks/database_layer/train__shipping/shipping.sqlite",
+  "tables": [
+    {
+      "table_name": "city",
+      "columns": [
+        {
+          "name": "city_id",
+          "type": "INTEGER",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [],
+          "logical_type": "integer",
+          "description": "unique identifier for the city",
+          "value_description": null,
+          "alias": "city id",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "city_name",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "name of the city",
+          "value_description": null,
+          "alias": "city name",
+          "description_data_format": "text"
+        },
+        {
+          "name": "state",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "state in which the city is",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "population",
+          "type": "INTEGER",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "integer",
+          "description": "population of the city",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "integer"
+        },
+        {
+          "name": "area",
+          "type": "REAL",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "real",
+          "description": "square miles the city covers",
+          "value_description": "commonsense evidence: population density (land area per capita) = area / population",
+          "alias": null,
+          "description_data_format": "real"
+        }
+      ]
+    },
+    {
+      "table_name": "customer",
+      "columns": [
+        {
+          "name": "cust_id",
+          "type": "INTEGER",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [],
+          "logical_type": "integer",
+          "description": "Unique identifier for the customer",
+          "value_description": null,
+          "alias": "customer id",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "cust_name",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "Business name of the customer",
+          "value_description": null,
+          "alias": "customer name",
+          "description_data_format": "text"
+        },
+        {
+          "name": "annual_revenue",
+          "type": "INTEGER",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "integer",
+          "description": "Annual revenue of the customer",
+          "value_description": null,
+          "alias": "annual revenue",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "cust_type",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "Whether the customer is a manufacturer or a wholes",
+          "value_description": null,
+          "alias": "customer type",
+          "description_data_format": "text"
+        },
+        {
+          "name": "address",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "Physical street address of the customer",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "city",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "City of the customer's address",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "state",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "State of the customer's address",
+          "value_description": "commonsense evidence: please mention its full name in the question, by referring to https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=53971 e.g., NY --> New York",
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "zip",
+          "type": "REAL",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "real",
+          "description": "Postal code of the customer's address",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "real"
+        },
+        {
+          "name": "phone",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "Telephone number to reach the customer",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        }
+      ]
+    },
+    {
+      "table_name": "driver",
+      "columns": [
+        {
+          "name": "driver_id",
+          "type": "INTEGER",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [],
+          "logical_type": "integer",
+          "description": "Unique identifier for the driver",
+          "value_description": null,
+          "alias": "driver id",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "first_name",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "First given name of the driver",
+          "value_description": null,
+          "alias": "first name",
+          "description_data_format": "text"
+        },
+        {
+          "name": "last_name",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "Family name of the driver",
+          "value_description": "commonsense evidence: full name = first_name + last_name",
+          "alias": "last name",
+          "description_data_format": "text"
+        },
+        {
+          "name": "address",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "Street address of the driver's home",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "city",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "City the driver lives in",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "state",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "State the driver lives in",
+          "value_description": "commonsense evidence: please mention its full name in the question, by referring to https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=53971 e.g., NY --> New York",
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "zip_code",
+          "type": "INTEGER",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "integer",
+          "description": "postal code of the driver's address",
+          "value_description": null,
+          "alias": "zip code",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "phone",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "telephone number of the driver",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "text"
+        }
+      ]
+    },
+    {
+      "table_name": "shipment",
+      "columns": [
+        {
+          "name": "ship_id",
+          "type": "INTEGER",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [],
+          "logical_type": "integer",
+          "description": "Unique identifier of the shipment",
+          "value_description": null,
+          "alias": "ship id",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "cust_id",
+          "type": "INTEGER",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [
+            {
+              "references_table": "customer",
+              "references_column": "cust_id",
+              "on_update": "NO ACTION",
+              "on_delete": "NO ACTION"
+            }
+          ],
+          "logical_type": "integer",
+          "description": "A reference to the customer table that indicates which customer the shipment is for",
+          "value_description": null,
+          "alias": "customer id",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "weight",
+          "type": "REAL",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "real",
+          "description": "The number of pounds being transported on the shipment",
+          "value_description": null,
+          "alias": null,
+          "description_data_format": "real"
+        },
+        {
+          "name": "truck_id",
+          "type": "INTEGER",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [
+            {
+              "references_table": "truck",
+              "references_column": "truck_id",
+              "on_update": "NO ACTION",
+              "on_delete": "NO ACTION"
+            }
+          ],
+          "logical_type": "integer",
+          "description": "A reference to the truck table that indicates which truck is used in the shipment",
+          "value_description": null,
+          "alias": "truck id",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "driver_id",
+          "type": "INTEGER",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [
+            {
+              "references_table": "driver",
+              "references_column": "driver_id",
+              "on_update": "NO ACTION",
+              "on_delete": "NO ACTION"
+            }
+          ],
+          "logical_type": "integer",
+          "description": "A reference to the driver table that indicates which driver transported the goods in the shipment",
+          "value_description": null,
+          "alias": "driver id",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "city_id",
+          "type": "INTEGER",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [
+            {
+              "references_table": "city",
+              "references_column": "city_id",
+              "on_update": "NO ACTION",
+              "on_delete": "NO ACTION"
+            }
+          ],
+          "logical_type": "integer",
+          "description": "A reference to the city table that indicates the destination of the shipment",
+          "value_description": null,
+          "alias": "city id",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "ship_date",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "the date the items were received by the driver",
+          "value_description": "yyyy-mm-dd",
+          "alias": "ship date",
+          "description_data_format": "text"
+        }
+      ]
+    },
+    {
+      "table_name": "truck",
+      "columns": [
+        {
+          "name": "truck_id",
+          "type": "INTEGER",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": true,
+          "foreign_keys": [],
+          "logical_type": "integer",
+          "description": "Unique identifier of the truck table",
+          "value_description": null,
+          "alias": "truck id",
+          "description_data_format": "integer"
+        },
+        {
+          "name": "make",
+          "type": "TEXT",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "text",
+          "description": "The brand of the truck",
+          "value_description": "commonsense evidence:  Peterbilt headquarter: Texas (TX)  Mack headquarter: North Carolina (NC)  Kenworth headquarter: Washington (WA) can ask question about headquarters of the truck",
+          "alias": null,
+          "description_data_format": "text"
+        },
+        {
+          "name": "model_year",
+          "type": "INTEGER",
+          "not_null": false,
+          "default_value": null,
+          "is_primary_key": false,
+          "foreign_keys": [],
+          "logical_type": "integer",
+          "description": "The year the truck was manufactured",
+          "value_description": "commonsense evidence: The truck with earlier model year means this truck is newer.",
+          "alias": "model year",
+          "description_data_format": "integer"
+        }
+      ]
+    }
+  ]
+}

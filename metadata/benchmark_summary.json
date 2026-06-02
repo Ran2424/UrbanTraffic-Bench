@@ -1,0 +1,25 @@
+{
+  "benchmark_name": "traffic_text2sql_benchmark_release",
+  "generated_on": "2026-06-02",
+  "source_root": "Data/normalized_text2sql_tasks",
+  "release_root": "Data/traffic_text2sql_benchmark_release",
+  "database_count": 28,
+  "task_count": 1714,
+  "scenario_count": 7,
+  "source_counts": {
+    "spider_data": 1153,
+    "train": 561
+  },
+  "result_mode_counts": {
+    "full_rows": 1686,
+    "verification_only": 28
+  },
+  "total_sqlite_size_bytes": 5346413568,
+  "sqlite_files_copied": false,
+  "sqlite_archives_created": true,
+  "sqlite_archive_count": 28,
+  "total_archive_size_bytes": 271038237,
+  "total_archive_size_mb": 258.482,
+  "archives_manifest": "database_files/archives_manifest.csv",
+  "archive_elapsed_seconds": 238.979
+}
