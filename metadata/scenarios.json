@@ -72,17 +72,6 @@
     ]
   },
   {
-    "scenario": "public_service_transport",
-    "scenario_zh": "公共服务",
-    "scenario_en": "Public service transport",
-    "database_count": 1,
-    "task_count": 18,
-    "total_rows": 24,
-    "databases": [
-      "spider_data__school_bus"
-    ]
-  },
-  {
     "scenario": "racing_competition",
     "scenario_zh": "赛车竞赛",
     "scenario_en": "Racing competition",

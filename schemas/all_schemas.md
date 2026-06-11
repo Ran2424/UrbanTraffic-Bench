@@ -64,10 +64,6 @@ Schema 文件：`schemas/by_database/spider_data__race_track.json`
 
 Schema 文件：`schemas/by_database/spider_data__railway.json`
 
-## spider_data__school_bus（公共服务，18 tasks）
-
-Schema 文件：`schemas/by_database/spider_data__school_bus.json`
-
 ## spider_data__ship_1（船运物流，48 tasks）
 
 Schema 文件：`schemas/by_database/spider_data__ship_1.json`
@@ -111,4 +107,3 @@ Schema 文件：`schemas/by_database/train__shipping.json`
 ## train__trains（铁路交通，40 tasks）
 
 Schema 文件：`schemas/by_database/train__trains.json`
-

@@ -1,23 +1,23 @@
 # TrafficSQL-Bench
 
-**TrafficSQL-Bench** 是一个面向交通领域的 Text-to-SQL / NL2SQL 基准数据集，覆盖机场航空、铁路交通、共享单车、道路车辆、船运物流、公共服务、赛车竞赛等 7 类交通场景。
+**TrafficSQL-Bench** 是一个面向交通领域的 Text-to-SQL / NL2SQL 基准数据集，覆盖机场航空、铁路交通、共享单车、道路车辆、船运物流、赛车竞赛等 6 类交通场景。
 
 本仓库提供可直接使用的数据库 schema、自然语言问题、gold SQL、数据库知识说明，以及逐库压缩后的 SQLite 数据库文件。读者可以按场景、按数据库或按全量任务进行评测。
 
 ## 数据规模
 
-- 数据库：28 个
-- 场景：7 个
-- Task：1714 条
-- Spider 交通子集 task：1153 条
+- 数据库：27 个
+- 场景：6 个
+- Task：1696 条
+- Spider 交通子集 task：1135 条
 - BIRD train 交通子集 task：561 条
-- 完整结果 task：1686 条
-- 大结果校核 task：28 条
-- 修订后 task：223 条
+- 完整结果 task：1663 条
+- 大结果校核 task：33 条
+- 修订后 task：222 条
 - 其中修订问题文本：17 条
-- 其中修订 gold SQL：220 条
+- 其中修订 gold SQL：218 条
 - SQLite 未压缩总大小：约 5.0GB
-- 逐库 `.7z` 压缩包：28 个，压缩后总大小约 258.5MB
+- 逐库 `.7z` 压缩包：27 个，压缩后总大小约 258.5MB
 
 ## Task 版本说明
 
@@ -32,7 +32,7 @@
 - `original_question`
 - `original_gold_sql`
 
-修订类型包括 gold SQL 修正、问题文本修正、大结果校核口径修正，以及 question + SQL 同步修正。当前共 223 条 task 带有修订追踪字段，其中 17 条修订问题文本，220 条修订 gold SQL。
+修订类型包括 gold SQL 修正、问题文本修正、大结果校核口径修正，以及 question + SQL 同步修正。当前共 222 条 task 带有修订追踪字段，其中 17 条修订问题文本，218 条修订 gold SQL。
 
 ## 场景
 
@@ -43,7 +43,6 @@
 | `bike_micromobility` | 共享单车 | 2 | 217 |
 | `road_vehicle_business` | 道路车辆 | 5 | 388 |
 | `maritime_shipping_logistics` | 船运物流 | 4 | 262 |
-| `public_service_transport` | 公共服务 | 1 | 18 |
 | `racing_competition` | 赛车竞赛 | 5 | 233 |
 
 更完整的数据库与场景清单见：

@@ -1,11 +1,10 @@
 # 场景清单
 
 | 场景 ID | 中文场景名 | 英文说明 | 数据库数 | Task 数 | 总行数 | 数据库 |
-|---|---|---|---:|---:|---:|---|
+| --- | --- | --- | ---: | ---: | ---: | --- |
 | `aviation_airport` | 机场航空 | Airport and aviation | 8 | 512 | 791651 | `spider_data__aircraft`, `spider_data__flight_1`, `spider_data__flight_2`, `spider_data__flight_4`, `spider_data__flight_company`, `spider_data__pilot_1`, `spider_data__pilot_record`, `train__airline` |
 | `rail_train_station` | 铁路交通 | Rail transport | 3 | 84 | 147 | `spider_data__railway`, `spider_data__train_station`, `train__trains` |
 | `bike_micromobility` | 共享单车 | Bike sharing | 2 | 217 | 72669251 | `spider_data__bike_1`, `train__bike_share_1` |
 | `road_vehicle_business` | 道路车辆 | Road vehicles | 5 | 388 | 6292 | `spider_data__car_1`, `spider_data__vehicle_driver`, `spider_data__vehicle_rent`, `train__car_retails`, `train__cars` |
 | `maritime_shipping_logistics` | 船运物流 | Maritime shipping and logistics | 4 | 262 | 1725 | `spider_data__boat_1`, `spider_data__ship_1`, `spider_data__ship_mission`, `train__shipping` |
-| `public_service_transport` | 公共服务 | Public service transport | 1 | 18 | 24 | `spider_data__school_bus` |
 | `racing_competition` | 赛车竞赛 | Racing competition | 5 | 233 | 88482 | `spider_data__bike_racing`, `spider_data__car_racing`, `spider_data__car_road_race`, `spider_data__formula_1`, `spider_data__race_track` |

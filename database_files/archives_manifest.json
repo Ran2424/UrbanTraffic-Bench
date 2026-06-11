@@ -288,24 +288,6 @@
     "elapsed_seconds": "0.009"
   },
   {
-    "database_uid": "spider_data__school_bus",
-    "db_id": "school_bus",
-    "source": "spider_data",
-    "scenario": "public_service_transport",
-    "scenario_zh": "公共服务",
-    "archive_path": "Data/traffic_text2sql_benchmark_release/database_files/archives/spider_data__school_bus.7z",
-    "archive_file": "spider_data__school_bus.7z",
-    "archive_size_bytes": "4693",
-    "archive_size_mb": "0.004",
-    "sqlite_source_path": "Data/normalized_text2sql_tasks/database_layer/spider_data__school_bus/school_bus.sqlite",
-    "sqlite_size_bytes": "28672",
-    "sqlite_size_mb": "0.027",
-    "compression_ratio": "0.1637",
-    "sha256": "96a840316ee005c19c83eb7eb4c961e43e0b92a4c5d0fa6781b87bd0f98fb81c",
-    "included_files": "school_bus.sqlite;database.json;knowledge.md;knowledge_database.md",
-    "elapsed_seconds": "0.008"
-  },
-  {
     "database_uid": "spider_data__ship_1",
     "db_id": "ship_1",
     "source": "spider_data",
