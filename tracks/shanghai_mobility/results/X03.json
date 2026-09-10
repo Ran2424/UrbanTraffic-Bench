@@ -1,0 +1,28 @@
+{
+  "task_id": "X03",
+  "columns": [
+    "metric_a",
+    "metric_b",
+    "common_peak_hour"
+  ],
+  "rows": [
+    [
+      "公交客流",
+      "共享单车锁车量",
+      8
+    ],
+    [
+      "公交客流",
+      "地铁进站量",
+      8
+    ],
+    [
+      "共享单车锁车量",
+      "地铁进站量",
+      8
+    ]
+  ],
+  "row_count": 3,
+  "truncated": false,
+  "execution_status": "ok"
+}

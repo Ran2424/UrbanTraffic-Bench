@@ -1,0 +1,18 @@
+{
+  "task_id": "S39",
+  "columns": [
+    "morning_locks",
+    "daily_locks",
+    "morning_pct"
+  ],
+  "rows": [
+    [
+      376971,
+      1334704,
+      28.24
+    ]
+  ],
+  "row_count": 1,
+  "truncated": false,
+  "execution_status": "ok"
+}

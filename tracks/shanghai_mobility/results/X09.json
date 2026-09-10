@@ -1,0 +1,24 @@
+{
+  "task_id": "X09",
+  "columns": [
+    "observed_metric_count",
+    "grid_count"
+  ],
+  "rows": [
+    [
+      1,
+      51063
+    ],
+    [
+      2,
+      38863
+    ],
+    [
+      3,
+      9318
+    ]
+  ],
+  "row_count": 3,
+  "truncated": false,
+  "execution_status": "ok"
+}

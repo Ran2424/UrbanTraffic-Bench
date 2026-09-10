@@ -1,0 +1,20 @@
+{
+  "task_id": "X06",
+  "columns": [
+    "hour",
+    "metro_pct",
+    "ridehail_pct",
+    "difference_pct"
+  ],
+  "rows": [
+    [
+      8,
+      13.4,
+      4.45,
+      8.95
+    ]
+  ],
+  "row_count": 1,
+  "truncated": false,
+  "execution_status": "ok"
+}

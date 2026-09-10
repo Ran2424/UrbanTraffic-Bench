@@ -1,0 +1,11 @@
+{
+  "database_uid": "shanghai_multimodal_simplified_v1__20260824",
+  "db_file": "shanghai_text2sql_simplified_v1.db",
+  "archive_ref": "database_files/archives/shanghai_multimodal__20260824.7z",
+  "archive_size_bytes": 5443072,
+  "archive_sha256": "403a0891e398d3c859fcdb38430ef8d7994b4fbb7c87f36cc1e4f1f152a25518",
+  "database_size_bytes": 50405376,
+  "database_sha256": "f7ca83427740711cc54993085a2797dabdd17d4ce758b5305d11e4434c5aacdf",
+  "table_count": 10,
+  "stat_date": "2026-08-24"
+}

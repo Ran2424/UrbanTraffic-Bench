@@ -1,0 +1,22 @@
+{
+  "task_id": "S27",
+  "columns": [
+    "morning_orders",
+    "evening_orders",
+    "daily_orders",
+    "morning_pct",
+    "evening_pct"
+  ],
+  "rows": [
+    [
+      147891,
+      210838,
+      1179238,
+      12.54,
+      17.88
+    ]
+  ],
+  "row_count": 1,
+  "truncated": false,
+  "execution_status": "ok"
+}

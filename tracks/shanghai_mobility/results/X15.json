@@ -1,0 +1,35 @@
+{
+  "task_id": "X15",
+  "columns": [
+    "geohash",
+    "taxi_dropoffs",
+    "ridehail_dropoffs",
+    "bike_locks",
+    "taxi_rank",
+    "ridehail_rank",
+    "bike_rank"
+  ],
+  "rows": [
+    [
+      "wtw3tjp",
+      9,
+      277,
+      254,
+      148,
+      180,
+      164
+    ],
+    [
+      "wtw3snq",
+      8,
+      637,
+      252,
+      185,
+      26,
+      168
+    ]
+  ],
+  "row_count": 2,
+  "truncated": false,
+  "execution_status": "ok"
+}

@@ -1,0 +1,100 @@
+{"new_task_id": "S01", "legacy_task_id": "M01", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "地铁", "new_difficulty": "简", "legacy_difficulty": "简"}
+{"new_task_id": "S02", "legacy_task_id": "M02", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "地铁", "new_difficulty": "简", "legacy_difficulty": "简"}
+{"new_task_id": "S03", "legacy_task_id": "M03", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "地铁", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S04", "legacy_task_id": "M04", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "地铁", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S05", "legacy_task_id": "M05", "change_type": "重分级", "new_category": "单方式查询", "legacy_category": "地铁", "new_difficulty": "难", "legacy_difficulty": "中"}
+{"new_task_id": "S06", "legacy_task_id": "M06", "change_type": "修订", "new_category": "单方式查询", "legacy_category": "地铁", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S07", "legacy_task_id": "M07", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "地铁", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "S08", "legacy_task_id": "M08", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "地铁", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S09", "legacy_task_id": "B01", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "公交", "new_difficulty": "简", "legacy_difficulty": "简"}
+{"new_task_id": "S10", "legacy_task_id": "B02", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "公交", "new_difficulty": "简", "legacy_difficulty": "简"}
+{"new_task_id": "S11", "legacy_task_id": "B03", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "公交", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S12", "legacy_task_id": "B04", "change_type": "重分级", "new_category": "单方式查询", "legacy_category": "公交", "new_difficulty": "难", "legacy_difficulty": "中"}
+{"new_task_id": "S13", "legacy_task_id": "B05", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "公交", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "S14", "legacy_task_id": "B06", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "公交", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S15", "legacy_task_id": "B07", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "公交", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S16", "legacy_task_id": "B08", "change_type": "重分级", "new_category": "单方式查询", "legacy_category": "公交", "new_difficulty": "难", "legacy_difficulty": "中"}
+{"new_task_id": "S17", "legacy_task_id": "T01", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "出租车", "new_difficulty": "简", "legacy_difficulty": "简"}
+{"new_task_id": "S18", "legacy_task_id": "T02", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "出租车", "new_difficulty": "简", "legacy_difficulty": "简"}
+{"new_task_id": "S19", "legacy_task_id": "T03", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "出租车", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S20", "legacy_task_id": "T04", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "出租车", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S21", "legacy_task_id": "T05", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "出租车", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "S22", "legacy_task_id": "T06", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "出租车", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S23", "legacy_task_id": "T07", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "出租车", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S24", "legacy_task_id": "T08", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "出租车", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "S25", "legacy_task_id": "R02", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "网约车", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S26", "legacy_task_id": "R03", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "网约车", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S27", "legacy_task_id": "R04", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "网约车", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S28", "legacy_task_id": "R05", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "网约车", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S29", "legacy_task_id": "R06", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "网约车", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "S30", "legacy_task_id": "R07", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "网约车", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S31", "legacy_task_id": "R08", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "网约车", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "S32", "legacy_task_id": "R10", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "网约车", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "S33", "legacy_task_id": "K01", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "共享单车", "new_difficulty": "简", "legacy_difficulty": "简"}
+{"new_task_id": "S34", "legacy_task_id": "K02", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "共享单车", "new_difficulty": "简", "legacy_difficulty": "简"}
+{"new_task_id": "S35", "legacy_task_id": "K03", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "共享单车", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S36", "legacy_task_id": "K04", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "共享单车", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S37", "legacy_task_id": "K05", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "共享单车", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S38", "legacy_task_id": "K06", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "共享单车", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "S39", "legacy_task_id": "K07", "change_type": "沿用", "new_category": "单方式查询", "legacy_category": "共享单车", "new_difficulty": "中", "legacy_difficulty": "中"}
+{"new_task_id": "S40", "legacy_task_id": "K08", "change_type": "重分级", "new_category": "单方式查询", "legacy_category": "共享单车", "new_difficulty": "难", "legacy_difficulty": "中"}
+{"new_task_id": "X01", "legacy_task_id": "C01", "change_type": "重分级", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "中", "legacy_difficulty": "难"}
+{"new_task_id": "X02", "legacy_task_id": "C02", "change_type": "沿用", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X03", "legacy_task_id": "C03", "change_type": "重分级", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "中", "legacy_difficulty": "难"}
+{"new_task_id": "X04", "legacy_task_id": "C04", "change_type": "沿用", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X05", "legacy_task_id": "C05", "change_type": "沿用", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X06", "legacy_task_id": "C06", "change_type": "沿用", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X07", "legacy_task_id": "C07", "change_type": "重分级", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "中", "legacy_difficulty": "难"}
+{"new_task_id": "X08", "legacy_task_id": "C08", "change_type": "重分级", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "中", "legacy_difficulty": "难"}
+{"new_task_id": "X09", "legacy_task_id": "C09", "change_type": "重分级", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "中", "legacy_difficulty": "难"}
+{"new_task_id": "X10", "legacy_task_id": "C10", "change_type": "沿用", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X11", "legacy_task_id": "C11", "change_type": "重分级", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "中", "legacy_difficulty": "难"}
+{"new_task_id": "X12", "legacy_task_id": "C12", "change_type": "沿用", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X13", "legacy_task_id": "C13", "change_type": "沿用", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X14", "legacy_task_id": "C14", "change_type": "沿用", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X15", "legacy_task_id": "C15", "change_type": "修订", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X16", "legacy_task_id": "C16", "change_type": "修订", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X17", "legacy_task_id": "C17", "change_type": "沿用", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X18", "legacy_task_id": "C18", "change_type": "沿用", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X19", "legacy_task_id": "C19", "change_type": "沿用", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X20", "legacy_task_id": "C20", "change_type": "沿用", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X21", "legacy_task_id": "C21", "change_type": "沿用", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X22", "legacy_task_id": "C22", "change_type": "沿用", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X23", "legacy_task_id": "C23", "change_type": "沿用", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X24", "legacy_task_id": "C24", "change_type": "沿用", "new_category": "多方式联合查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "X25", "legacy_task_id": null, "change_type": "新增", "new_category": "多方式联合查询", "legacy_category": null, "new_difficulty": "简", "legacy_difficulty": null}
+{"new_task_id": "X26", "legacy_task_id": null, "change_type": "新增", "new_category": "多方式联合查询", "legacy_category": null, "new_difficulty": "简", "legacy_difficulty": null}
+{"new_task_id": "X27", "legacy_task_id": null, "change_type": "新增", "new_category": "多方式联合查询", "legacy_category": null, "new_difficulty": "中", "legacy_difficulty": null}
+{"new_task_id": "X28", "legacy_task_id": null, "change_type": "新增", "new_category": "多方式联合查询", "legacy_category": null, "new_difficulty": "中", "legacy_difficulty": null}
+{"new_task_id": "X29", "legacy_task_id": null, "change_type": "新增", "new_category": "多方式联合查询", "legacy_category": null, "new_difficulty": "中", "legacy_difficulty": null}
+{"new_task_id": "X30", "legacy_task_id": null, "change_type": "新增", "new_category": "多方式联合查询", "legacy_category": null, "new_difficulty": "中", "legacy_difficulty": null}
+{"new_task_id": "G01", "legacy_task_id": "C25", "change_type": "沿用", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 A", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G02", "legacy_task_id": "C26", "change_type": "修订", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "中", "legacy_difficulty": "难"}
+{"new_task_id": "G03", "legacy_task_id": "C27", "change_type": "沿用", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G04", "legacy_task_id": "C28", "change_type": "沿用", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G05", "legacy_task_id": "C29", "change_type": "重分级", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "中", "legacy_difficulty": "难"}
+{"new_task_id": "G06", "legacy_task_id": "C30", "change_type": "重分级", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "中", "legacy_difficulty": "难"}
+{"new_task_id": "G07", "legacy_task_id": "C31", "change_type": "沿用", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G08", "legacy_task_id": "C32", "change_type": "修订", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G09", "legacy_task_id": "C33", "change_type": "沿用", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G10", "legacy_task_id": "C34", "change_type": "重分级", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "中", "legacy_difficulty": "难"}
+{"new_task_id": "G11", "legacy_task_id": "C35", "change_type": "修订", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "中", "legacy_difficulty": "难"}
+{"new_task_id": "G12", "legacy_task_id": "C36", "change_type": "沿用", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G13", "legacy_task_id": "C37", "change_type": "沿用", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G14", "legacy_task_id": "C38", "change_type": "沿用", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G15", "legacy_task_id": "C39", "change_type": "沿用", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G16", "legacy_task_id": "C40", "change_type": "沿用", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G17", "legacy_task_id": "C41", "change_type": "沿用", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G18", "legacy_task_id": "C42", "change_type": "沿用", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G19", "legacy_task_id": "C43", "change_type": "重分级", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "中", "legacy_difficulty": "难"}
+{"new_task_id": "G20", "legacy_task_id": "C44", "change_type": "沿用", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G21", "legacy_task_id": "C45", "change_type": "重分级", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "中", "legacy_difficulty": "难"}
+{"new_task_id": "G22", "legacy_task_id": "C46", "change_type": "重分级", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "中", "legacy_difficulty": "难"}
+{"new_task_id": "G23", "legacy_task_id": "C47", "change_type": "沿用", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G24", "legacy_task_id": "C48", "change_type": "沿用", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G25", "legacy_task_id": "C49", "change_type": "沿用", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G26", "legacy_task_id": "C50", "change_type": "沿用", "new_category": "GIS空间关联查询", "legacy_category": "联合查询 B", "new_difficulty": "难", "legacy_difficulty": "难"}
+{"new_task_id": "G27", "legacy_task_id": null, "change_type": "新增", "new_category": "GIS空间关联查询", "legacy_category": null, "new_difficulty": "简", "legacy_difficulty": null}
+{"new_task_id": "G28", "legacy_task_id": null, "change_type": "新增", "new_category": "GIS空间关联查询", "legacy_category": null, "new_difficulty": "简", "legacy_difficulty": null}
+{"new_task_id": "G29", "legacy_task_id": null, "change_type": "新增", "new_category": "GIS空间关联查询", "legacy_category": null, "new_difficulty": "中", "legacy_difficulty": null}
+{"new_task_id": "G30", "legacy_task_id": null, "change_type": "新增", "new_category": "GIS空间关联查询", "legacy_category": null, "new_difficulty": "中", "legacy_difficulty": null}

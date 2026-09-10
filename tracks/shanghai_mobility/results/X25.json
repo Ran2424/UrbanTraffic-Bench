@@ -1,0 +1,18 @@
+{
+  "task_id": "X25",
+  "columns": [
+    "metro_entries",
+    "bus_flow",
+    "bus_to_metro_ratio"
+  ],
+  "rows": [
+    [
+      6147485,
+      1776227,
+      0.288936
+    ]
+  ],
+  "row_count": 1,
+  "truncated": false,
+  "execution_status": "ok"
+}

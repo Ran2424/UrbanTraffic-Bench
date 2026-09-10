@@ -1,0 +1,43 @@
+{
+  "task_id": "X20",
+  "columns": [
+    "geohash",
+    "morning_bike",
+    "evening_ridehail",
+    "bike_rank",
+    "ridehail_rank"
+  ],
+  "rows": [
+    [
+      "wtw397r",
+      211,
+      110,
+      95,
+      58
+    ],
+    [
+      "wtw3dty",
+      178,
+      168,
+      146,
+      17
+    ],
+    [
+      "wtw3t1t",
+      158,
+      74,
+      182,
+      153
+    ],
+    [
+      "wtw3tj5",
+      156,
+      103,
+      190,
+      71
+    ]
+  ],
+  "row_count": 4,
+  "truncated": false,
+  "execution_status": "ok"
+}

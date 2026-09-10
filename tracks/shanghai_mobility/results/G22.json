@@ -1,0 +1,24 @@
+{
+  "task_id": "G22",
+  "columns": [
+    "added_taxi",
+    "base_taxi",
+    "taxi_added_pct",
+    "added_ridehail",
+    "base_ridehail",
+    "ridehail_added_pct"
+  ],
+  "rows": [
+    [
+      4505,
+      6047,
+      74.5,
+      173736,
+      392976,
+      44.21
+    ]
+  ],
+  "row_count": 1,
+  "truncated": false,
+  "execution_status": "ok"
+}

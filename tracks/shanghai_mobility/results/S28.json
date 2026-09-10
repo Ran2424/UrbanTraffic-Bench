@@ -1,0 +1,14 @@
+{
+  "task_id": "S28",
+  "columns": [
+    "qualifying_grids"
+  ],
+  "rows": [
+    [
+      29
+    ]
+  ],
+  "row_count": 1,
+  "truncated": false,
+  "execution_status": "ok"
+}

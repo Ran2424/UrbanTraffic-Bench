@@ -1,0 +1,16 @@
+{
+  "task_id": "S01",
+  "columns": [
+    "entry_total",
+    "exit_total"
+  ],
+  "rows": [
+    [
+      6147485,
+      6171470
+    ]
+  ],
+  "row_count": 1,
+  "truncated": false,
+  "execution_status": "ok"
+}

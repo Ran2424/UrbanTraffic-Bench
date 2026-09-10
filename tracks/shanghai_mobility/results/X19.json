@@ -1,0 +1,20 @@
+{
+  "task_id": "X19",
+  "columns": [
+    "peak_relation",
+    "grid_count"
+  ],
+  "rows": [
+    [
+      "峰值小时有重合",
+      6045
+    ],
+    [
+      "峰值小时无重合",
+      307
+    ]
+  ],
+  "row_count": 2,
+  "truncated": false,
+  "execution_status": "ok"
+}

@@ -1,0 +1,90 @@
+{
+  "task_id": "S20",
+  "columns": [
+    "geohash",
+    "dropoff_total"
+  ],
+  "score_column": "dropoff_total",
+  "selection_size": 10,
+  "boundary_value": 25,
+  "mandatory_rows": [
+    [
+      "wtw1x98",
+      37
+    ],
+    [
+      "wtw32jt",
+      33
+    ],
+    [
+      "wtw3snm",
+      32
+    ],
+    [
+      "wtw3317",
+      31
+    ],
+    [
+      "wtw389r",
+      28
+    ],
+    [
+      "wtw32hy",
+      27
+    ],
+    [
+      "wtw1xdn",
+      26
+    ],
+    [
+      "wtw3ekx",
+      26
+    ]
+  ],
+  "eligible_rows": [
+    [
+      "wtw1x98",
+      37
+    ],
+    [
+      "wtw32jt",
+      33
+    ],
+    [
+      "wtw3snm",
+      32
+    ],
+    [
+      "wtw3317",
+      31
+    ],
+    [
+      "wtw389r",
+      28
+    ],
+    [
+      "wtw32hy",
+      27
+    ],
+    [
+      "wtw1xdn",
+      26
+    ],
+    [
+      "wtw3ekx",
+      26
+    ],
+    [
+      "wtw32p5",
+      25
+    ],
+    [
+      "wtw387s",
+      25
+    ],
+    [
+      "wtw3e7w",
+      25
+    ]
+  ]
+}

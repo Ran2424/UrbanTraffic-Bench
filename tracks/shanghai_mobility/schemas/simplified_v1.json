@@ -1,0 +1,279 @@
+{
+  "database_uid": "shanghai_multimodal_simplified_v1__20260824",
+  "tables": [
+    {
+      "name": "bus_flow_hour",
+      "type": "table",
+      "sql": "CREATE TABLE bus_flow_hour (\n  stat_date TEXT NOT NULL,\n  stat_hour INTEGER NOT NULL CHECK (stat_hour BETWEEN 0 AND 23),\n  bus_line_id INTEGER NOT NULL REFERENCES bus_line(bus_line_id),\n  passenger_flow INTEGER NOT NULL CHECK (passenger_flow >= 0),\n  PRIMARY KEY (stat_date, stat_hour, bus_line_id)\n) STRICT, WITHOUT ROWID",
+      "columns": [
+        {
+          "name": "stat_date",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key_order": 1
+        },
+        {
+          "name": "stat_hour",
+          "type": "INTEGER",
+          "not_null": true,
+          "primary_key_order": 2
+        },
+        {
+          "name": "bus_line_id",
+          "type": "INTEGER",
+          "not_null": true,
+          "primary_key_order": 3
+        },
+        {
+          "name": "passenger_flow",
+          "type": "INTEGER",
+          "not_null": true,
+          "primary_key_order": 0
+        }
+      ]
+    },
+    {
+      "name": "bus_line",
+      "type": "table",
+      "sql": "CREATE TABLE bus_line (\n  bus_line_id INTEGER PRIMARY KEY,\n  line_name TEXT NOT NULL\n) STRICT",
+      "columns": [
+        {
+          "name": "bus_line_id",
+          "type": "INTEGER",
+          "not_null": false,
+          "primary_key_order": 1
+        },
+        {
+          "name": "line_name",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key_order": 0
+        }
+      ]
+    },
+    {
+      "name": "grid",
+      "type": "table",
+      "sql": "CREATE TABLE grid (\n  geohash TEXT PRIMARY KEY CHECK (length(geohash) = 7)\n) STRICT, WITHOUT ROWID",
+      "columns": [
+        {
+          "name": "geohash",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key_order": 1
+        }
+      ]
+    },
+    {
+      "name": "grid_flow_hour",
+      "type": "table",
+      "sql": "CREATE TABLE grid_flow_hour (\n  stat_date TEXT NOT NULL,\n  stat_hour INTEGER NOT NULL CHECK (stat_hour BETWEEN 0 AND 23),\n  geohash TEXT NOT NULL REFERENCES grid(geohash),\n  taxi_pickups INTEGER,\n  taxi_dropoffs INTEGER,\n  ridehail_orders INTEGER,\n  ridehail_dropoffs INTEGER,\n  bike_locks INTEGER,\n  PRIMARY KEY (stat_date, stat_hour, geohash),\n  CHECK (taxi_pickups IS NULL OR taxi_pickups >= 0),\n  CHECK (taxi_dropoffs IS NULL OR taxi_dropoffs >= 0),\n  CHECK (ridehail_orders IS NULL OR ridehail_orders >= 0),\n  CHECK (ridehail_dropoffs IS NULL OR ridehail_dropoffs >= 0),\n  CHECK (bike_locks IS NULL OR bike_locks >= 0),\n  CHECK (\n    taxi_pickups IS NOT NULL\n    OR taxi_dropoffs IS NOT NULL\n    OR ridehail_orders IS NOT NULL\n    OR ridehail_dropoffs IS NOT NULL\n    OR bike_locks IS NOT NULL\n  )\n) STRICT, WITHOUT ROWID",
+      "columns": [
+        {
+          "name": "stat_date",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key_order": 1
+        },
+        {
+          "name": "stat_hour",
+          "type": "INTEGER",
+          "not_null": true,
+          "primary_key_order": 2
+        },
+        {
+          "name": "geohash",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key_order": 3
+        },
+        {
+          "name": "taxi_pickups",
+          "type": "INTEGER",
+          "not_null": false,
+          "primary_key_order": 0
+        },
+        {
+          "name": "taxi_dropoffs",
+          "type": "INTEGER",
+          "not_null": false,
+          "primary_key_order": 0
+        },
+        {
+          "name": "ridehail_orders",
+          "type": "INTEGER",
+          "not_null": false,
+          "primary_key_order": 0
+        },
+        {
+          "name": "ridehail_dropoffs",
+          "type": "INTEGER",
+          "not_null": false,
+          "primary_key_order": 0
+        },
+        {
+          "name": "bike_locks",
+          "type": "INTEGER",
+          "not_null": false,
+          "primary_key_order": 0
+        }
+      ]
+    },
+    {
+      "name": "metro_bus_line_distance",
+      "type": "table",
+      "sql": "CREATE TABLE metro_bus_line_distance (\n  station_id INTEGER NOT NULL REFERENCES metro_station(station_id),\n  bus_line_id INTEGER NOT NULL REFERENCES bus_line(bus_line_id),\n  distance_m REAL NOT NULL CHECK (distance_m >= 0 AND distance_m <= 1000),\n  PRIMARY KEY (station_id, bus_line_id)\n) STRICT, WITHOUT ROWID",
+      "columns": [
+        {
+          "name": "station_id",
+          "type": "INTEGER",
+          "not_null": true,
+          "primary_key_order": 1
+        },
+        {
+          "name": "bus_line_id",
+          "type": "INTEGER",
+          "not_null": true,
+          "primary_key_order": 2
+        },
+        {
+          "name": "distance_m",
+          "type": "REAL",
+          "not_null": true,
+          "primary_key_order": 0
+        }
+      ]
+    },
+    {
+      "name": "metro_flow_hour",
+      "type": "table",
+      "sql": "CREATE TABLE metro_flow_hour (\n  stat_date TEXT NOT NULL,\n  stat_hour INTEGER NOT NULL CHECK (stat_hour BETWEEN 0 AND 23),\n  line_id INTEGER NOT NULL REFERENCES metro_line(line_id),\n  station_id INTEGER NOT NULL REFERENCES metro_station(station_id),\n  entry_flow INTEGER NOT NULL CHECK (entry_flow >= 0),\n  exit_flow INTEGER NOT NULL CHECK (exit_flow >= 0),\n  PRIMARY KEY (stat_date, stat_hour, line_id, station_id)\n) STRICT, WITHOUT ROWID",
+      "columns": [
+        {
+          "name": "stat_date",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key_order": 1
+        },
+        {
+          "name": "stat_hour",
+          "type": "INTEGER",
+          "not_null": true,
+          "primary_key_order": 2
+        },
+        {
+          "name": "line_id",
+          "type": "INTEGER",
+          "not_null": true,
+          "primary_key_order": 3
+        },
+        {
+          "name": "station_id",
+          "type": "INTEGER",
+          "not_null": true,
+          "primary_key_order": 4
+        },
+        {
+          "name": "entry_flow",
+          "type": "INTEGER",
+          "not_null": true,
+          "primary_key_order": 0
+        },
+        {
+          "name": "exit_flow",
+          "type": "INTEGER",
+          "not_null": true,
+          "primary_key_order": 0
+        }
+      ]
+    },
+    {
+      "name": "metro_grid_distance",
+      "type": "table",
+      "sql": "CREATE TABLE metro_grid_distance (\n  station_id INTEGER NOT NULL REFERENCES metro_station(station_id),\n  geohash TEXT NOT NULL REFERENCES grid(geohash),\n  distance_m REAL NOT NULL CHECK (distance_m >= 0 AND distance_m <= 1000),\n  PRIMARY KEY (station_id, geohash)\n) STRICT, WITHOUT ROWID",
+      "columns": [
+        {
+          "name": "station_id",
+          "type": "INTEGER",
+          "not_null": true,
+          "primary_key_order": 1
+        },
+        {
+          "name": "geohash",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key_order": 2
+        },
+        {
+          "name": "distance_m",
+          "type": "REAL",
+          "not_null": true,
+          "primary_key_order": 0
+        }
+      ]
+    },
+    {
+      "name": "metro_line",
+      "type": "table",
+      "sql": "CREATE TABLE metro_line (\n  line_id INTEGER PRIMARY KEY,\n  line_name TEXT NOT NULL UNIQUE\n) STRICT",
+      "columns": [
+        {
+          "name": "line_id",
+          "type": "INTEGER",
+          "not_null": false,
+          "primary_key_order": 1
+        },
+        {
+          "name": "line_name",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key_order": 0
+        }
+      ]
+    },
+    {
+      "name": "metro_station",
+      "type": "table",
+      "sql": "CREATE TABLE metro_station (\n  station_id INTEGER PRIMARY KEY,\n  station_name TEXT NOT NULL UNIQUE\n) STRICT",
+      "columns": [
+        {
+          "name": "station_id",
+          "type": "INTEGER",
+          "not_null": false,
+          "primary_key_order": 1
+        },
+        {
+          "name": "station_name",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key_order": 0
+        }
+      ]
+    },
+    {
+      "name": "metro_station_distance",
+      "type": "table",
+      "sql": "CREATE TABLE metro_station_distance (\n  station_id INTEGER NOT NULL REFERENCES metro_station(station_id),\n  nearby_station_id INTEGER NOT NULL REFERENCES metro_station(station_id),\n  distance_m REAL NOT NULL CHECK (distance_m >= 0 AND distance_m <= 2000),\n  PRIMARY KEY (station_id, nearby_station_id),\n  CHECK (station_id <> nearby_station_id)\n) STRICT, WITHOUT ROWID",
+      "columns": [
+        {
+          "name": "station_id",
+          "type": "INTEGER",
+          "not_null": true,
+          "primary_key_order": 1
+        },
+        {
+          "name": "nearby_station_id",
+          "type": "INTEGER",
+          "not_null": true,
+          "primary_key_order": 2
+        },
+        {
+          "name": "distance_m",
+          "type": "REAL",
+          "not_null": true,
+          "primary_key_order": 0
+        }
+      ]
+    }
+  ]
+}

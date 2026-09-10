@@ -1,0 +1,14 @@
+{
+  "task_id": "S33",
+  "columns": [
+    "lock_total"
+  ],
+  "rows": [
+    [
+      1334704
+    ]
+  ],
+  "row_count": 1,
+  "truncated": false,
+  "execution_status": "ok"
+}

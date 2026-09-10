@@ -1,0 +1,32 @@
+{
+  "task_id": "G08",
+  "columns": [
+    "area_type",
+    "evening_taxi",
+    "evening_ridehail",
+    "evening_bike"
+  ],
+  "rows": [
+    [
+      "两站都覆盖",
+      4,
+      146,
+      101
+    ],
+    [
+      "只靠近上海体育馆",
+      8,
+      599,
+      1186
+    ],
+    [
+      "只靠近徐家汇",
+      16,
+      1469,
+      1654
+    ]
+  ],
+  "row_count": 3,
+  "truncated": false,
+  "execution_status": "ok"
+}

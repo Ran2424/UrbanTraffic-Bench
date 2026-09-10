@@ -1,0 +1,16 @@
+{
+  "task_id": "S35",
+  "columns": [
+    "hour",
+    "lock_total"
+  ],
+  "rows": [
+    [
+      8,
+      176181
+    ]
+  ],
+  "row_count": 1,
+  "truncated": false,
+  "execution_status": "ok"
+}

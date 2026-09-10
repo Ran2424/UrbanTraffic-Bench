@@ -1,0 +1,64 @@
+{
+  "task_id": "X22",
+  "columns": [
+    "hour",
+    "geohash",
+    "hotspot_types",
+    "included_metrics",
+    "qualifying_grids_in_hour"
+  ],
+  "rows": [
+    [
+      0,
+      "wtw3ej9",
+      2,
+      "网约车下客+共享单车锁车",
+      1
+    ],
+    [
+      1,
+      "wtw3s58",
+      2,
+      "网约车下客+共享单车锁车",
+      1
+    ],
+    [
+      3,
+      "wtw3s51",
+      2,
+      "网约车下客+共享单车锁车",
+      1
+    ],
+    [
+      8,
+      "wtw32wu",
+      2,
+      "出租车下客+网约车下客",
+      1
+    ],
+    [
+      14,
+      "wtw2e0t",
+      2,
+      "出租车下客+共享单车锁车",
+      1
+    ],
+    [
+      19,
+      "wtw32wg",
+      2,
+      "出租车下客+网约车下客",
+      1
+    ],
+    [
+      21,
+      "wtw95xp",
+      2,
+      "出租车下客+网约车下客",
+      1
+    ]
+  ],
+  "row_count": 7,
+  "truncated": false,
+  "execution_status": "ok"
+}

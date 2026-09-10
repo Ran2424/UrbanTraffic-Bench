@@ -1,0 +1,36 @@
+{
+  "task_id": "X27",
+  "columns": [
+    "hour",
+    "metro_entries",
+    "bus_flow",
+    "metro_pct",
+    "bus_pct"
+  ],
+  "rows": [
+    [
+      7,
+      657947,
+      141736,
+      34.64,
+      26.61
+    ],
+    [
+      8,
+      823622,
+      220648,
+      43.36,
+      41.42
+    ],
+    [
+      9,
+      417789,
+      170321,
+      22.0,
+      31.97
+    ]
+  ],
+  "row_count": 3,
+  "truncated": false,
+  "execution_status": "ok"
+}

@@ -1,0 +1,20 @@
+{
+  "task_id": "G03",
+  "columns": [
+    "peak_relation",
+    "station_count"
+  ],
+  "rows": [
+    [
+      "峰值小时有重合",
+      113
+    ],
+    [
+      "峰值小时无重合",
+      289
+    ]
+  ],
+  "row_count": 2,
+  "truncated": false,
+  "execution_status": "ok"
+}

@@ -1,0 +1,43 @@
+{
+  "task_id": "G21",
+  "columns": [
+    "station_count_group",
+    "ridehail_dropoffs",
+    "bike_locks",
+    "ridehail_pct",
+    "bike_pct"
+  ],
+  "rows": [
+    [
+      "0",
+      192219,
+      484683,
+      25.33,
+      36.31
+    ],
+    [
+      "1",
+      334139,
+      583214,
+      44.03,
+      43.7
+    ],
+    [
+      "2",
+      186499,
+      213650,
+      24.57,
+      16.01
+    ],
+    [
+      "3+",
+      46074,
+      53157,
+      6.07,
+      3.98
+    ]
+  ],
+  "row_count": 4,
+  "truncated": false,
+  "execution_status": "ok"
+}

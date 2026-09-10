@@ -1,0 +1,24 @@
+[
+  {
+    "track_id": "open_source_sql",
+    "track_name_zh": "开源交通 SQL 生成",
+    "track_name_en": "Open-source Traffic SQL Generation",
+    "database_count": 27,
+    "task_count": 1696,
+    "languages": ["en"],
+    "root": "tracks/open_source_sql",
+    "tasks_ref": "tracks/open_source_sql/tasks/tasks.jsonl",
+    "status": "released"
+  },
+  {
+    "track_id": "shanghai_mobility",
+    "track_name_zh": "上海交通业务分析",
+    "track_name_en": "Shanghai Urban Mobility Analytics",
+    "database_count": 1,
+    "task_count": 100,
+    "languages": ["zh"],
+    "root": "tracks/shanghai_mobility",
+    "tasks_ref": "tracks/shanghai_mobility/tasks/tasks.jsonl",
+    "status": "candidate_pending_two_person_review"
+  }
+]

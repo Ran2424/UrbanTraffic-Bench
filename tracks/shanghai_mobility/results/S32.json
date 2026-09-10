@@ -1,0 +1,85 @@
+{
+  "task_id": "S32",
+  "columns": [
+    "geohash",
+    "hour",
+    "ridehail_orders",
+    "ridehail_dropoffs",
+    "difference"
+  ],
+  "rows": [
+    [
+      "wtw32xp",
+      20,
+      938,
+      25,
+      913
+    ],
+    [
+      "wtw32xp",
+      22,
+      885,
+      2,
+      883
+    ],
+    [
+      "wtw32xp",
+      18,
+      847,
+      46,
+      801
+    ],
+    [
+      "wtw32xp",
+      21,
+      779,
+      8,
+      771
+    ],
+    [
+      "wtw32xp",
+      19,
+      817,
+      50,
+      767
+    ],
+    [
+      "wtw32xp",
+      0,
+      690,
+      2,
+      688
+    ],
+    [
+      "wtw32xp",
+      16,
+      765,
+      81,
+      684
+    ],
+    [
+      "wtw32xp",
+      15,
+      740,
+      82,
+      658
+    ],
+    [
+      "wtw32xp",
+      12,
+      668,
+      50,
+      618
+    ],
+    [
+      "wtw32xp",
+      13,
+      625,
+      61,
+      564
+    ]
+  ],
+  "row_count": 10,
+  "truncated": false,
+  "execution_status": "ok"
+}

@@ -1,0 +1,35 @@
+{
+  "task_id": "G20",
+  "columns": [
+    "station_id",
+    "station_name",
+    "nearby_lines",
+    "complete_lines",
+    "morning_bus_total",
+    "morning_exit",
+    "metro_observed_hours"
+  ],
+  "rows": [
+    [
+      276,
+      "中春路",
+      5,
+      5,
+      3740,
+      3724,
+      3
+    ],
+    [
+      397,
+      "金平路",
+      5,
+      5,
+      2090,
+      460,
+      3
+    ]
+  ],
+  "row_count": 2,
+  "truncated": false,
+  "execution_status": "ok"
+}

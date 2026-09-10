@@ -1,0 +1,16 @@
+{
+  "task_id": "S17",
+  "columns": [
+    "pickup_total",
+    "dropoff_total"
+  ],
+  "rows": [
+    [
+      10987,
+      20565
+    ]
+  ],
+  "row_count": 1,
+  "truncated": false,
+  "execution_status": "ok"
+}

@@ -1,0 +1,43 @@
+{
+  "task_id": "X24",
+  "columns": [
+    "hour",
+    "ridehail_concentration",
+    "bike_concentration",
+    "average_ridehail_concentration",
+    "average_bike_concentration"
+  ],
+  "rows": [
+    [
+      4,
+      0.194739,
+      0.059908,
+      0.105739,
+      0.018329
+    ],
+    [
+      5,
+      0.419629,
+      0.058336,
+      0.105739,
+      0.018329
+    ],
+    [
+      6,
+      0.391639,
+      0.018759,
+      0.105739,
+      0.018329
+    ],
+    [
+      7,
+      0.244798,
+      0.020858,
+      0.105739,
+      0.018329
+    ]
+  ],
+  "row_count": 4,
+  "truncated": false,
+  "execution_status": "ok"
+}

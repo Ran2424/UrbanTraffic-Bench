@@ -1,0 +1,234 @@
+{
+  "benchmark_version": "v2_40_30_30",
+  "run_type": "development_reused90_plus_new10",
+  "task_count": 100,
+  "models": {
+    "deepseek-v4-flash": {
+      "overall": {
+        "total": 100,
+        "pass": 54,
+        "fail": 46,
+        "review": 0,
+        "pass_fraction": 0.54
+      },
+      "by_category": {
+        "单方式查询": {
+          "total": 40,
+          "pass": 37,
+          "fail": 3,
+          "review": 0,
+          "pass_fraction": 0.925
+        },
+        "多方式联合查询": {
+          "total": 30,
+          "pass": 8,
+          "fail": 22,
+          "review": 0,
+          "pass_fraction": 0.26666666666666666
+        },
+        "GIS空间关联查询": {
+          "total": 30,
+          "pass": 9,
+          "fail": 21,
+          "review": 0,
+          "pass_fraction": 0.3
+        }
+      },
+      "by_difficulty": {
+        "简": {
+          "total": 12,
+          "pass": 11,
+          "fail": 1,
+          "review": 0,
+          "pass_fraction": 0.9166666666666666
+        },
+        "中": {
+          "total": 40,
+          "pass": 25,
+          "fail": 15,
+          "review": 0,
+          "pass_fraction": 0.625
+        },
+        "难": {
+          "total": 48,
+          "pass": 18,
+          "fail": 30,
+          "review": 0,
+          "pass_fraction": 0.375
+        }
+      },
+      "by_source": {
+        "reused_legacy_execution_rescored": {
+          "total": 90,
+          "pass": 48,
+          "fail": 42,
+          "review": 0,
+          "pass_fraction": 0.5333333333333333
+        },
+        "new_api_evaluation": {
+          "total": 10,
+          "pass": 6,
+          "fail": 4,
+          "review": 0,
+          "pass_fraction": 0.6
+        }
+      },
+      "legacy_outcome_changes_after_v2_rescore": 3
+    },
+    "gpt-5.2": {
+      "overall": {
+        "total": 100,
+        "pass": 62,
+        "fail": 38,
+        "review": 0,
+        "pass_fraction": 0.62
+      },
+      "by_category": {
+        "单方式查询": {
+          "total": 40,
+          "pass": 36,
+          "fail": 4,
+          "review": 0,
+          "pass_fraction": 0.9
+        },
+        "多方式联合查询": {
+          "total": 30,
+          "pass": 17,
+          "fail": 13,
+          "review": 0,
+          "pass_fraction": 0.5666666666666667
+        },
+        "GIS空间关联查询": {
+          "total": 30,
+          "pass": 9,
+          "fail": 21,
+          "review": 0,
+          "pass_fraction": 0.3
+        }
+      },
+      "by_difficulty": {
+        "简": {
+          "total": 12,
+          "pass": 10,
+          "fail": 2,
+          "review": 0,
+          "pass_fraction": 0.8333333333333334
+        },
+        "中": {
+          "total": 40,
+          "pass": 31,
+          "fail": 9,
+          "review": 0,
+          "pass_fraction": 0.775
+        },
+        "难": {
+          "total": 48,
+          "pass": 21,
+          "fail": 27,
+          "review": 0,
+          "pass_fraction": 0.4375
+        }
+      },
+      "by_source": {
+        "reused_legacy_execution_rescored": {
+          "total": 90,
+          "pass": 57,
+          "fail": 33,
+          "review": 0,
+          "pass_fraction": 0.6333333333333333
+        },
+        "new_api_evaluation": {
+          "total": 10,
+          "pass": 5,
+          "fail": 5,
+          "review": 0,
+          "pass_fraction": 0.5
+        }
+      },
+      "legacy_outcome_changes_after_v2_rescore": 1
+    },
+    "qwen3.5-plus": {
+      "overall": {
+        "total": 100,
+        "pass": 67,
+        "fail": 33,
+        "review": 0,
+        "pass_fraction": 0.67
+      },
+      "by_category": {
+        "单方式查询": {
+          "total": 40,
+          "pass": 39,
+          "fail": 1,
+          "review": 0,
+          "pass_fraction": 0.975
+        },
+        "多方式联合查询": {
+          "total": 30,
+          "pass": 16,
+          "fail": 14,
+          "review": 0,
+          "pass_fraction": 0.5333333333333333
+        },
+        "GIS空间关联查询": {
+          "total": 30,
+          "pass": 12,
+          "fail": 18,
+          "review": 0,
+          "pass_fraction": 0.4
+        }
+      },
+      "by_difficulty": {
+        "简": {
+          "total": 12,
+          "pass": 12,
+          "fail": 0,
+          "review": 0,
+          "pass_fraction": 1.0
+        },
+        "中": {
+          "total": 40,
+          "pass": 30,
+          "fail": 10,
+          "review": 0,
+          "pass_fraction": 0.75
+        },
+        "难": {
+          "total": 48,
+          "pass": 25,
+          "fail": 23,
+          "review": 0,
+          "pass_fraction": 0.5208333333333334
+        }
+      },
+      "by_source": {
+        "reused_legacy_execution_rescored": {
+          "total": 90,
+          "pass": 60,
+          "fail": 30,
+          "review": 0,
+          "pass_fraction": 0.6666666666666666
+        },
+        "new_api_evaluation": {
+          "total": 10,
+          "pass": 7,
+          "fail": 3,
+          "review": 0,
+          "pass_fraction": 0.7
+        }
+      },
+      "legacy_outcome_changes_after_v2_rescore": 0
+    }
+  },
+  "consensus_by_number_of_models_passing": {
+    "0": 22,
+    "1": 16,
+    "2": 19,
+    "3": 43
+  },
+  "provenance": {
+    "reused_tasks": "90 legacy executions from the 2026-09-08 three-model run, rescored with v2 policies",
+    "new_tasks": "10 tasks evaluated on 2026-09-10"
+  },
+  "official_accuracy": null
+}

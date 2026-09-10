@@ -1,0 +1,52 @@
+{
+  "task_id": "S26",
+  "columns": [
+    "geohash",
+    "order_total"
+  ],
+  "rows": [
+    [
+      "wtw32xp",
+      10928
+    ],
+    [
+      "wtw95wy",
+      5183
+    ],
+    [
+      "wtw32x3",
+      4944
+    ],
+    [
+      "wtw95xh",
+      4388
+    ],
+    [
+      "wtw32wc",
+      3927
+    ],
+    [
+      "wtw32x1",
+      2942
+    ],
+    [
+      "wtw35pc",
+      2887
+    ],
+    [
+      "wtw3g9q",
+      2470
+    ],
+    [
+      "wtw33pp",
+      2420
+    ],
+    [
+      "wtw95xn",
+      2193
+    ]
+  ],
+  "row_count": 10,
+  "truncated": false,
+  "execution_status": "ok"
+}

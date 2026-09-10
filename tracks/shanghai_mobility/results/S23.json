@@ -1,0 +1,18 @@
+{
+  "task_id": "S23",
+  "columns": [
+    "top10_pickups",
+    "all_pickups",
+    "top10_pct"
+  ],
+  "rows": [
+    [
+      8802,
+      10987,
+      80.11
+    ]
+  ],
+  "row_count": 1,
+  "truncated": false,
+  "execution_status": "ok"
+}

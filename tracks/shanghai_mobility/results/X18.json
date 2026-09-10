@@ -1,0 +1,26 @@
+{
+  "task_id": "X18",
+  "columns": [
+    "period",
+    "intersection_count",
+    "union_count",
+    "jaccard"
+  ],
+  "rows": [
+    [
+      "早高峰",
+      2,
+      38,
+      0.052632
+    ],
+    [
+      "晚高峰",
+      1,
+      39,
+      0.025641
+    ]
+  ],
+  "row_count": 2,
+  "truncated": false,
+  "execution_status": "ok"
+}

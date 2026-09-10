@@ -1,0 +1,36 @@
+{
+  "task_id": "X10",
+  "columns": [
+    "metric_a",
+    "metric_b",
+    "intersection_count",
+    "union_count",
+    "jaccard"
+  ],
+  "rows": [
+    [
+      "出租车下客",
+      "共享单车锁车",
+      297,
+      30424,
+      0.009762
+    ],
+    [
+      "出租车下客",
+      "网约车下客",
+      202,
+      24912,
+      0.008109
+    ],
+    [
+      "网约车下客",
+      "共享单车锁车",
+      11836,
+      43205,
+      0.27395
+    ]
+  ],
+  "row_count": 3,
+  "truncated": false,
+  "execution_status": "ok"
+}

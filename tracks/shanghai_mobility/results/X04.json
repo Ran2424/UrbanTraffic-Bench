@@ -1,0 +1,24 @@
+{
+  "task_id": "X04",
+  "columns": [
+    "hour",
+    "metro_entries",
+    "bus_flow",
+    "metro_rank",
+    "bus_rank",
+    "rank_difference"
+  ],
+  "rows": [
+    [
+      20,
+      274599,
+      61280,
+      8,
+      14,
+      6
+    ]
+  ],
+  "row_count": 1,
+  "truncated": false,
+  "execution_status": "ok"
+}

@@ -1,0 +1,74 @@
+{
+  "task_id": "S30",
+  "columns": [
+    "geohash",
+    "daily_orders",
+    "evening_orders",
+    "evening_pct"
+  ],
+  "rows": [
+    [
+      "wtw60gz",
+      106,
+      72,
+      67.92
+    ],
+    [
+      "wtw3wyu",
+      137,
+      90,
+      65.69
+    ],
+    [
+      "wtw3s8j",
+      182,
+      100,
+      54.95
+    ],
+    [
+      "wtw2zk8",
+      143,
+      74,
+      51.75
+    ],
+    [
+      "wtw0tgd",
+      117,
+      58,
+      49.57
+    ],
+    [
+      "wtw3kmd",
+      257,
+      123,
+      47.86
+    ],
+    [
+      "wtw3kr6",
+      298,
+      142,
+      47.65
+    ],
+    [
+      "wtw0yj6",
+      124,
+      58,
+      46.77
+    ],
+    [
+      "wtw389r",
+      511,
+      233,
+      45.6
+    ],
+    [
+      "wtqxvuk",
+      377,
+      170,
+      45.09
+    ]
+  ],
+  "row_count": 10,
+  "truncated": false,
+  "execution_status": "ok"
+}

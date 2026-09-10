@@ -1,0 +1,11 @@
+{
+  "benchmark_name": "TrafficSQL-Bench",
+  "release_version": "2.0.0-draft",
+  "primary_language": "zh",
+  "track_count": 2,
+  "database_count": 28,
+  "task_count": 1796,
+  "tracks_ref": "metadata/tracks.json",
+  "evaluation_ref": "docs/EVALUATION.md",
+  "release_status": "draft_pending_shanghai_review"
+}

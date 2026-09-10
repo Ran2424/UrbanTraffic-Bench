@@ -1,0 +1,78 @@
+{
+  "task_id": "X13",
+  "columns": [
+    "geohash",
+    "taxi_dropoffs",
+    "ridehail_dropoffs",
+    "taxi_rank",
+    "ridehail_rank"
+  ],
+  "rows": [
+    [
+      "wtw34m4",
+      22,
+      512,
+      16,
+      82
+    ],
+    [
+      "wtw33pn",
+      18,
+      808,
+      28,
+      32
+    ],
+    [
+      "wtw32wu",
+      17,
+      1849,
+      36,
+      12
+    ],
+    [
+      "wtw32wg",
+      14,
+      10425,
+      58,
+      1
+    ],
+    [
+      "wtw3g8v",
+      13,
+      7651,
+      78,
+      2
+    ],
+    [
+      "wtw95xn",
+      13,
+      552,
+      79,
+      76
+    ],
+    [
+      "wtw3es6",
+      12,
+      470,
+      88,
+      98
+    ],
+    [
+      "wtw3et5",
+      12,
+      575,
+      89,
+      66
+    ],
+    [
+      "wtw3syd",
+      12,
+      566,
+      90,
+      70
+    ]
+  ],
+  "row_count": 9,
+  "truncated": false,
+  "execution_status": "ok"
+}

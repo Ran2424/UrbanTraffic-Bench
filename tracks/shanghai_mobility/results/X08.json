@@ -1,0 +1,44 @@
+{
+  "task_id": "X08",
+  "columns": [
+    "previous_hour",
+    "current_hour",
+    "ridehail_change",
+    "bike_change"
+  ],
+  "rows": [
+    [
+      8,
+      9,
+      10914,
+      -69074
+    ],
+    [
+      9,
+      10,
+      5864,
+      -51849
+    ],
+    [
+      10,
+      11,
+      4123,
+      -5042
+    ],
+    [
+      11,
+      12,
+      4087,
+      -2315
+    ],
+    [
+      12,
+      13,
+      4627,
+      -3868
+    ]
+  ],
+  "row_count": 5,
+  "truncated": false,
+  "execution_status": "ok"
+}

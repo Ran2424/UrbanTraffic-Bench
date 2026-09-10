@@ -1,0 +1,32 @@
+{
+  "task_id": "G05",
+  "columns": [
+    "metric",
+    "covered_total",
+    "all_grid_total",
+    "covered_pct"
+  ],
+  "rows": [
+    [
+      "出租车下客",
+      6047,
+      20565,
+      29.4
+    ],
+    [
+      "网约车下客",
+      392976,
+      758931,
+      51.78
+    ],
+    [
+      "共享单车锁车",
+      552490,
+      1334704,
+      41.39
+    ]
+  ],
+  "row_count": 3,
+  "truncated": false,
+  "execution_status": "ok"
+}

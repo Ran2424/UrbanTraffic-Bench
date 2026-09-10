@@ -29,11 +29,11 @@ TrafficSQL-Bench 基于公开 Text-to-SQL 数据集中的交通相关数据库�
 
 `tasks/` 目录中的 task 是 TrafficSQL-Bench 的正式评测任务。数据整理过程中，部分原始问题文本或 gold SQL 经过人工校核与修订，以减少题意歧义、SQL 明显错误和大结果校核口径不一致等问题。
 
-当前共 `223` 条 task 带有修订追踪字段，其中：
+当前共 `222` 条 task 带有修订追踪字段，其中：
 
 - 修订问题文本：`17` 条
-- 修订 gold SQL：`220` 条
-- 同时修订问题文本和 gold SQL：`15` 条
+- 修订 gold SQL：`218` 条
+- 同时修订问题文本和 gold SQL：`13` 条
 
 评测时应以本仓库 `tasks/*.jsonl` 中的 `question` 和 `gold_sql` 为准。对于修订过的 task，相关追踪字段包括：
 

@@ -1,0 +1,18 @@
+{
+  "task_id": "S04",
+  "columns": [
+    "morning_entry",
+    "daily_entry",
+    "morning_pct"
+  ],
+  "rows": [
+    [
+      1899358,
+      6147485,
+      30.9
+    ]
+  ],
+  "row_count": 1,
+  "truncated": false,
+  "execution_status": "ok"
+}

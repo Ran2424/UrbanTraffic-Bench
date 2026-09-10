@@ -1,0 +1,52 @@
+{
+  "task_id": "S20",
+  "columns": [
+    "geohash",
+    "dropoff_total"
+  ],
+  "rows": [
+    [
+      "wtw1x98",
+      37
+    ],
+    [
+      "wtw32jt",
+      33
+    ],
+    [
+      "wtw3snm",
+      32
+    ],
+    [
+      "wtw3317",
+      31
+    ],
+    [
+      "wtw389r",
+      28
+    ],
+    [
+      "wtw32hy",
+      27
+    ],
+    [
+      "wtw1xdn",
+      26
+    ],
+    [
+      "wtw3ekx",
+      26
+    ],
+    [
+      "wtw32p5",
+      25
+    ],
+    [
+      "wtw387s",
+      25
+    ]
+  ],
+  "row_count": 10,
+  "truncated": false,
+  "execution_status": "ok"
+}

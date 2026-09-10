@@ -1,0 +1,18 @@
+{
+  "task_id": "S37",
+  "columns": [
+    "top10_locks",
+    "all_locks",
+    "top10_pct"
+  ],
+  "rows": [
+    [
+      15403,
+      1334704,
+      1.15
+    ]
+  ],
+  "row_count": 1,
+  "truncated": false,
+  "execution_status": "ok"
+}

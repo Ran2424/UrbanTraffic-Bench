@@ -1,0 +1,32 @@
+{
+  "task_id": "G13",
+  "columns": [
+    "metric",
+    "selected_total",
+    "all_station_total",
+    "selected_pct"
+  ],
+  "rows": [
+    [
+      "出租车下客",
+      752,
+      6047,
+      12.44
+    ],
+    [
+      "网约车下客",
+      78344,
+      392976,
+      19.94
+    ],
+    [
+      "共享单车锁车",
+      23761,
+      552490,
+      4.3
+    ]
+  ],
+  "row_count": 3,
+  "truncated": false,
+  "execution_status": "ok"
+}

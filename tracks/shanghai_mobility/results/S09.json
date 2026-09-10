@@ -1,0 +1,14 @@
+{
+  "task_id": "S09",
+  "columns": [
+    "bus_total"
+  ],
+  "rows": [
+    [
+      1776227
+    ]
+  ],
+  "row_count": 1,
+  "truncated": false,
+  "execution_status": "ok"
+}
