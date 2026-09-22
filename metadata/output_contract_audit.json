@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "tasks_checked": 100,
+  "scenario_counts": {
+    "single_mode": 40,
+    "cross_modal": 30,
+    "spatial_gis": 30
+  },
+  "questions_kept_business_only": 100,
+  "structured_output_contracts": 100,
+  "structured_supplementary_notes": 100,
+  "questions_with_numeric_precision": 27,
+  "questions_with_null_rules": 9,
+  "questions_with_categorical_rules": 17,
+  "questions_with_fixed_topk_rules": 39,
+  "questions_with_semantic_rewrites": 12,
+  "canonical_metric_terminology": "公交客流量",
+  "gold_sql_executed": 100,
+  "expected_results_matched": 100,
+  "generated_prompts_matched": 100
+}

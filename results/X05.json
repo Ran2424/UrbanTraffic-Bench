@@ -1,0 +1,32 @@
+{
+  "task_id": "X05",
+  "columns": [
+    "metric",
+    "half_total_hour"
+  ],
+  "rows": [
+    [
+      "公交客流量",
+      13
+    ],
+    [
+      "共享单车锁车量",
+      14
+    ],
+    [
+      "出租车上车量",
+      16
+    ],
+    [
+      "地铁进站量",
+      14
+    ],
+    [
+      "网约车下单量",
+      14
+    ]
+  ],
+  "row_count": 5,
+  "truncated": false,
+  "execution_status": "ok"
+}

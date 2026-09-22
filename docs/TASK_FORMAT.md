@@ -1,32 +1,34 @@
 # 任务格式
 
-## 公共字段
+`tasks/tasks.jsonl` 是 UrbanTraffic-Bench 的任务主文件，每行对应一道交通业务问题。
+
+## 主要字段
 
 | 字段 | 必需 | 说明 |
 |---|---|---|
-| `task_id` | 是 | 赛道内稳定题号 |
-| `database_uid` | 是 | 数据库唯一标识 |
-| `question` | 是 | 自然语言问题 |
-| `gold_sql` | 是 | 标准 SQLite 查询 |
-| `schema_ref` | 是 | 相对赛道根目录的 schema 路径 |
-| `knowledge_ref` | 否 | 相对赛道根目录的知识说明路径 |
-| `execution_status` | 是 | 标准 SQL 校核状态 |
-| `result_mode` | 是 | 完整结果或校核模式 |
-| `result_columns` | 是 | 结果字段 |
+| `task_id` | 是 | 稳定题号：`S01–S40`、`X01–X30` 或 `G01–G30` |
+| `question` | 是 | 交通业务问题 |
+| `supplementary_notes` | 是 | 时间、空间、候选集合、并列和观测边界等计算条件 |
+| `output_contract` | 是 | 必需输出字段、类型、可空性、精度和行选取规则 |
+| `gold_sql` | 是 | 参考 SQLite 查询，不要求参评系统复现同一写法 |
+| `result_ref` | 是 | 相对项目根目录的参考结果路径 |
+| `schema_ref` | 是 | 相对项目根目录的 schema 路径 |
+| `knowledge_ref` | 是 | 相对项目根目录的公共口径说明路径 |
+| `scenario` / `scenario_zh` | 是 | 单方式、多方式或空间关联任务 |
+| `difficulty` | 是 | 简、中或难 |
+| `evaluation_policy` | 是 | 字段映射、行顺序、重复行、数值容差和空值的比较规则 |
+| `review_status` | 是 | 人工审核状态 |
 
-## 开源赛道扩展
+## 任务类型
 
-开源赛道保留 `source`、`split`、`db_id`、`evidence` 和修订追踪字段。历史值 `source=train` 表示 BIRD train 数据，后续统一索引时映射为 `source_dataset=bird`、`source_split=train`，不直接改写旧任务主键。
+- `single_mode`：单方式任务，40 道。
+- `cross_modal`：多方式任务，30 道。
+- `spatial_gis`：空间关联任务，30 道。
 
-## 上海赛道扩展
+三类任务反映完成问题所需的数据关系，不等同于 SQL 语法难度。
 
-上海赛道增加：
+## 结果契约
 
-- `scenario_zh`：单方式查询、多方式联合查询或 GIS 空间关联查询。
-- `difficulty`：简、中、难。
-- `analysis_dimension`：时间、排名、空间聚合等分析维度。
-- `legacy_task_id`：上一版题号。
-- `evaluation_policy`：字段、行序、数值和 TopK 比较规则。
-- `review_status`：人工审核状态。
+`output_contract.columns` 逐列规定字段名、数据类型和可空性，可选项包括小数位数、枚举值和固定 Top-K 规则。`evaluation_policy` 规定评分器如何比较参评结果与参考结果。完整 JSON Schema 见 [`docs/task.schema.json`](task.schema.json)。
 
-跨赛道索引使用 `track_id + task_id` 形成全局唯一键，不要求两个赛道采用同一种本地编号格式。
+CSV 和 `tasks/by_category/` 是从主文件导出的视图，不单独维护版本。

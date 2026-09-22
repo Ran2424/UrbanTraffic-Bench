@@ -1,0 +1,26 @@
+{
+  "task_id": "X02",
+  "columns": [
+    "metric",
+    "start_hour",
+    "end_hour",
+    "window_total"
+  ],
+  "rows": [
+    [
+      "公交客流量",
+      7,
+      9,
+      532705
+    ],
+    [
+      "网约车下单量",
+      12,
+      14,
+      236828
+    ]
+  ],
+  "row_count": 2,
+  "truncated": false,
+  "execution_status": "ok"
+}

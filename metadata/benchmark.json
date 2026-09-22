@@ -1,11 +1,14 @@
 {
-  "benchmark_name": "TrafficSQL-Bench",
-  "release_version": "2.0.0-draft",
+  "benchmark_name": "UrbanTraffic-Bench",
+  "benchmark_name_zh": "城市交通业务数据分析评测集",
+  "release_version": "2.1.0-candidate",
+  "benchmark_version": "v2_40_30_30",
   "primary_language": "zh",
-  "track_count": 2,
-  "database_count": 28,
-  "task_count": 1796,
-  "tracks_ref": "metadata/tracks.json",
+  "database_count": 1,
+  "task_count": 100,
+  "tasks_ref": "tasks/tasks.jsonl",
+  "database_ref": "metadata/database.json",
   "evaluation_ref": "docs/EVALUATION.md",
-  "release_status": "draft_pending_shanghai_review"
+  "release_status": "candidate_pending_two_person_review",
+  "archived_open_source_data_ref": "archive/open_source_sql"
 }

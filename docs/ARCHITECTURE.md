@@ -1,29 +1,28 @@
-# 基准结构
+# 项目结构
 
 ## 设计目标
 
-TrafficSQL-Bench 不把所有交通题目放入同一个统计池，而是区分两类能力：
+UrbanTraffic-Bench 围绕一个上海多方式交通数据库组织 100 道交通业务分析任务。每道任务同时固化业务问题、计算条件、结果契约、参考查询和参考结果，支持按最终分析结果评分。
 
-1. 跨数据库 SQL 生成：考察 schema linking、连接、聚合、子查询和集合运算。
-2. 城市交通业务分析：考察业务指标、时间窗口、多方式对齐、空间集合和最近邻等问题。
+当前项目只有一个评测主体，不再区分两个 track。原公开 Text-to-SQL 数据只作为历史归档保存。
 
-## 术语
+## 活跃内容
 
-| 字段 | 含义 |
+| 路径 | 作用 |
 |---|---|
-| `track_id` | 评测赛道：`open_source_sql` 或 `shanghai_mobility` |
-| `domain` | 数据业务主题，如航空、铁路或城市交通 |
-| `task_family` | 题目分析类型，如单方式、多方式联合或 GIS |
-| `database_uid` | 数据库唯一标识 |
-| `task_id` | 赛道内稳定题号 |
-| `legacy_task_id` | 历史题号，仅用于追溯 |
-| `language` | 问题语言 |
-| `difficulty` | 难度标签；没有可靠标注时保持为空 |
+| `tasks/tasks.jsonl` | 100 道任务的唯一结构化主文件 |
+| `tasks/by_category/` | 按单方式、多方式和空间关联导出的任务视图 |
+| `题库.md` | 用于人工审阅的题库清单 |
+| `database_files/` | 上海精简评测库压缩包 |
+| `schemas/` | 表结构、字段口径和数据规模 |
+| `knowledge/` | 题库公共时间、缺失值、Top-K 和分类口径 |
+| `sql/` | 100 份逐题参考 SQL |
+| `results/` | 100 份参考执行结果与 Top-K 边界兼容数据 |
+| `baselines/four_models_v2/` | 当前论文使用的四模型、两种方法评测记录 |
+| `metadata/` | 版本、校验和审核状态 |
 
-旧版任务中的 `scenario` 是交通主题；上海任务中的 `scenario` 是分析类型。新增工具不应把两者当成同一层级，统一读取时应映射到 `domain` 和 `task_family`。
+`tasks/tasks.jsonl` 是题目主数据。CSV、分类 JSONL、逐题 SQL 和参考结果必须与主文件保持一致，不应作为独立版本维护。
 
-## 唯一数据源
+## 归档内容
 
-每个赛道的 `tasks/tasks.jsonl` 是任务主文件。CSV、按数据库文件和按题型文件属于派生视图，应由脚本生成或校验，避免多份数据独立维护。
-
-数据库、schema、知识说明、标准结果和 baseline 均保存在所属赛道内。顶层 metadata 只保存跨赛道索引，不复制任务正文。
+`archive/open_source_sql/` 保留原双轨版本中的 Spider 和 BIRD 交通相关数据、schema、题目和修订记录。`archive/legacy_baselines/` 保留早期三模型增量结果。两类归档均不参与当前版本校验和主指标计算。

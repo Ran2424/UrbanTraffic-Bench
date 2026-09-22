@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "checks": {
+    "benchmark_version": "v2_40_30_30",
+    "task_count": 100,
+    "categories": {
+      "单方式查询": 40,
+      "多方式联合查询": 30,
+      "GIS空间关联查询": 30
+    },
+    "difficulty": {
+      "简": 12,
+      "中": 40,
+      "难": 48
+    },
+    "single_mode_transport_distribution": {
+      "地铁": 8,
+      "公交": 8,
+      "出租车": 8,
+      "网约车": 8,
+      "共享单车": 8
+    },
+    "legacy_tasks_reused": 90,
+    "new_tasks": 10,
+    "execution_ok": 100,
+    "empty_tasks": [],
+    "database_sha256": "f7ca83427740711cc54993085a2797dabdd17d4ce758b5305d11e4434c5aacdf",
+    "review_status": "pending_two_person_review"
+  }
+}
